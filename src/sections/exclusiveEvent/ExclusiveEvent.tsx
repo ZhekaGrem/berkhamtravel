@@ -2,8 +2,16 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 import { eventsData } from '@/data';
 import styles from './exclusiveEvent.module.css';
+
+// Background images for each category (replace with your own images)
+const categoryBackgrounds: Record<string, string> = {
+  sporting: '/premium_berkhamtravel_car_car.jpg',
+  entertainment: '/premium_berkhamtravel_cinema.jpg',
+  redCarpet: '/premium_berkhamtravel_shoping.jpg',
+};
 
 export function ExclusiveEvent() {
   const [openCategory, setOpenCategory] = useState<string | null>('sporting');
@@ -52,22 +60,37 @@ export function ExclusiveEvent() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
             >
-              <h3 className={styles.columnTitle}>{category.title}</h3>
-              <ul className={styles.eventList}>
-                {category.items.map((item, itemIndex) => (
-                  <motion.li
-                    key={item}
-                    className={styles.eventItem}
-                    initial={{ opacity: 0, x: -10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: 0.2 + itemIndex * 0.03 }}
-                  >
-                    <span className={styles.eventBullet} />
-                    {item}
-                  </motion.li>
-                ))}
-              </ul>
+              {/* Background Image */}
+              <div className={styles.columnBackground}>
+                <Image
+                  src={categoryBackgrounds[category.id] || '/premium_berkhamtravel_cinema.jpg'}
+                  alt=""
+                  fill
+                  quality={75}
+                  sizes="(max-width: 1024px) 100vw, 33vw"
+                />
+              </div>
+              <div className={styles.columnOverlay} />
+
+              {/* Content */}
+              <div className={styles.columnContent}>
+                <h3 className={styles.columnTitle}>{category.title}</h3>
+                <ul className={styles.eventList}>
+                  {category.items.map((item, itemIndex) => (
+                    <motion.li
+                      key={item}
+                      className={styles.eventItem}
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.3, delay: 0.2 + itemIndex * 0.03 }}
+                    >
+                      <span className={styles.eventBullet} />
+                      {item}
+                    </motion.li>
+                  ))}
+                </ul>
+              </div>
             </motion.div>
           ))}
         </div>
@@ -112,7 +135,7 @@ export function ExclusiveEvent() {
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ delay: index * 0.03 }}
                         >
-                          <span className={styles.eventBullet} />
+                          <span className={styles.mobileEventBullet} />
                           {item}
                         </motion.li>
                       ))}

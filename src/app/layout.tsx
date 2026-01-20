@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { Playfair_Display, Raleway , Cormorant } from "next/font/google";
 import Script from "next/script";
@@ -20,6 +20,16 @@ const cormorant = Cormorant({
   weight: ["300", "400"],
   style: ["italic"]
 });
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#0A0A0A' },
+    { media: '(prefers-color-scheme: dark)', color: '#0A0A0A' },
+  ],
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://berkhamtravel.com'),
   title: {

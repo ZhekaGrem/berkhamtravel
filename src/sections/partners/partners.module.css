@@ -15,14 +15,17 @@
 }
 
 .tagline {
-  display: block;
+ display: block;
   font-family: var(--font-body);
   font-size: var(--font-size-caption);
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  color: var(--color-text-accent);
-  margin-bottom: var(--spacing-sm);
+    background: var(--color-text-accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: var(--spacing-md);
 }
 
 .title {
