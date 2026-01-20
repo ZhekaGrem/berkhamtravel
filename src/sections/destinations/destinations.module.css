@@ -116,8 +116,8 @@
 
 .cardContent {
   position: absolute;
-  bottom: 0;
-  left: 0;
+  bottom: 10px;
+  left: 10px;
   right: 0;
   display: flex;
   align-items: center;
@@ -166,6 +166,8 @@
 
   .cardContent {
     padding: var(--spacing-lg);
+    bottom: 20px;
+  left: 20px;
   }
 
   .cardTitle {
