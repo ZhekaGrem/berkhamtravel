@@ -192,27 +192,51 @@
 
 /* Desktop */
 @media (min-width: 1024px) {
-  .gridDesktop {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--spacing-lg);
-  }
-
   .accordionMobile {
     display: none;
   }
 
+  .gridDesktop {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Центрує неповний останній ряд */
+    gap: var(--spacing-lg);
+  }
+
   .column {
     padding: var(--spacing-xl);
+    
+    /* Логіка для 3 колонок:
+       (100% ширини - 2 відступи між ними) / 3 колонки */
+    flex: 0 0 calc((100% - (var(--spacing-lg) * 2)) / 3);
+    max-width: calc((100% - (var(--spacing-lg) * 2)) / 3);
+    
+    /* Важливо: щоб висота карток була однаковою */
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Це притисне список до верху, якщо контенту мало */
+  .columnTitle {
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .eventList {
+    flex-grow: 1;
   }
 }
 
 @media (min-width: 1440px) {
   .gridDesktop {
-    gap: var(--spacing-xl);
+    gap: var(--spacing-xl); /* Відступ збільшується */
   }
 
   .column {
     padding: var(--spacing-2xl);
+    
+    /* Перераховуємо ширину, бо змінився gap на xl 
+       Формула та сама: 3 колонки */
+    flex: 0 0 calc((100% - (var(--spacing-xl) * 2)) / 3);
+    max-width: calc((100% - (var(--spacing-xl) * 2)) / 3);
   }
 }

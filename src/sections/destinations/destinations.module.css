@@ -45,14 +45,20 @@
 
 /* Grid */
 .grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--spacing-sm);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Центрує "сиріт" в останньому рядку */
+  gap: var(--spacing-sm);  /* Використовуємо нативний gap */
 }
 
 /* Card */
 .card {
   position: relative;
+  /* Мобільна: 2 колонки. 
+     Формула: (100% мінус 1 відступ) поділити на 2 */
+  flex: 0 0 calc((100% - var(--spacing-sm)) / 2);
+  max-width: calc((100% - var(--spacing-sm)) / 2);
+  
   aspect-ratio: 1;
   overflow: hidden;
   cursor: pointer;
@@ -130,8 +136,14 @@
   }
 
   .grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--spacing-md);
+    gap: var(--spacing-md); /* Відступ збільшується */
+  }
+
+  .card {
+    /* Планшет: 3 колонки.
+       Формула: (100% мінус 2 відступи) поділити на 3 */
+    flex: 0 0 calc((100% - (var(--spacing-md) * 2)) / 3);
+    max-width: calc((100% - (var(--spacing-md) * 2)) / 3);
   }
 
   .cardContent {
@@ -145,18 +157,27 @@
 
 /* Desktop */
 @media (min-width: 1024px) {
-  .grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
+  /* Відступ залишається spacing-md, тому використовуємо його у формулі */
   .card {
+    /* Десктоп: 4 колонки.
+       Формула: (100% мінус 3 відступи) поділити на 4 */
+    flex: 0 0 calc((100% - (var(--spacing-md) * 3)) / 4);
+    max-width: calc((100% - (var(--spacing-md) * 3)) / 4);
+    
     aspect-ratio: 3/4;
   }
 }
 
 @media (min-width: 1440px) {
   .grid {
-    gap: var(--spacing-lg);
+    gap: var(--spacing-lg); /* Увага! Відступ змінився на LG */
+  }
+
+  .card {
+    /* Оскільки gap змінився, треба перерахувати ширину для 4 колонок
+       Формула: (100% мінус 3 великих відступи) поділити на 4 */
+    flex: 0 0 calc((100% - (var(--spacing-lg) * 3)) / 4);
+    max-width: calc((100% - (var(--spacing-lg) * 3)) / 4);
   }
 
   .cardContent {

@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import styles from './footer.module.css';
-
+import Link from 'next/link';
 const navLinks = [
   { href: '#about', label: 'About' },
   { href: '#services', label: 'Services' },
@@ -14,18 +14,19 @@ export function Footer() {
 
   return (
     <footer className={styles.footer}>
+     
       <div className={styles.container}>
         <div className={styles.grid}>
           {/* Logo & Description */}
           <div className={styles.brand}>
-            <a href="/" className={styles.logo}>
+            <Link href="/" className={styles.logo}>
               <Image
-                src="/logo/Золото на прозорому.png"
+                src="/logo/logoFooter.png"
                 alt="Berkham Travel"
                 width={180}
                 height={50}
               />
-            </a>
+            </Link>
             <p className={styles.description}>
               Bespoke luxury travel experiences crafted exclusively around your wishes.
             </p>

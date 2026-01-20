@@ -33,12 +33,15 @@
   font-family: var(--font-heading);
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 700;
-  color: var(--color-text-primary);
+  background: var(--color-text-accent-gradient-silver);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .titleAccent {
   background: var(--color-text-accent-gradient);
-  -webkit-background-clip: text;
+ -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }

@@ -44,13 +44,13 @@ export function Destinations() {
                 {/* Placeholder gradient until real images are added */}
                 <div className={styles.placeholder} />
                 {/* Uncomment when images are available */}
-                {/* <Image
+                <Image
                   src={destination.image}
                   alt={destination.name}
                   fill
                   quality={80}
                   className={styles.cardImage}
-                /> */}
+                />
                 <div className={styles.cardOverlay} />
               </div>
               <div className={styles.cardContent}>

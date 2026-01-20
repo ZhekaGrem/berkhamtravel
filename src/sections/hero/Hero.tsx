@@ -56,7 +56,7 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          Berkham Private
+         <span className={styles.titleFirst}>Berkham Private</span> 
           <br />
           <span className={styles.titleAccent}>Travel & Concierge</span>
         </motion.h1>
@@ -77,7 +77,12 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.8 }}
         >
           <a href="#contact" className={styles.ctaButton}>
-            Begin Your Journey
+            
+            <div className={styles.box3}>
+  <div className={`${styles.btn} ${styles.btnThree}`}>
+    <span>Begin Your Journey</span>
+  </div>
+</div>
           </a>
         </motion.div>
       </div>

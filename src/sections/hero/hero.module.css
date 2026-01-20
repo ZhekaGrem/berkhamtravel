@@ -65,9 +65,11 @@
   letter-spacing: 0.02em;
 }
 
+
 .title {
+  
   font-family: var(--font-heading);
-  font-size: clamp(2.5rem, 7vw, 5rem);
+  font-size: clamp(2rem, 7vw, 4.5rem);
   font-weight: 700;
   background: var(--color-text-accent-gradient-silver);
   -webkit-background-clip: text;
@@ -76,6 +78,11 @@
   line-height: 1.1;
   margin-bottom: var(--spacing-lg);
   letter-spacing: -0.01em;
+  background-size: 200% auto; /* Розтягуємо градієнт */
+  animation: shine 25s linear infinite;
+}
+.titleFirst{
+ text-transform: uppercase;
 }
 
 .titleAccent {
@@ -111,28 +118,11 @@
 
 .ctaButton {
   display: inline-block;
-  padding: var(--spacing-sm) var(--spacing-xl);
-  font-family: var(--font-body);
-  font-size: var(--font-size-small);
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--color-primary-bg);
-  background-color: var(--color-text-secondary);
-  border:1px solid transparent;
-  border-radius: 0;
-  cursor: pointer;
-  transition: all var(--transition-base);
-  text-decoration: none;
+ 
   
 }
 
-.ctaButton:hover {
-  background-color: #c9a432;
-  transform: translateY(-2px);
-  border:1px solid var(--color-text-accent);
-  color: var(--color-primary-bg);
-}
+
 
 /* Scroll Indicator */
 .scrollIndicator {
@@ -177,7 +167,7 @@
 /* Responsive */
 @media (min-width: 768px) {
   .content {
-    padding: var(--spacing-xl);
+    padding: var(--spacing-2xl);
   }
 
   .scrollIndicator {
@@ -189,4 +179,55 @@
   .title {
     letter-spacing: 0.02em;
   }
+}
+
+.box3{
+  background-color: var(--color-text-accent-gradient-silver);
+}
+
+.btn {
+  line-height: 50px;
+  height: 50px;
+  text-align: center;
+  width: 250px;
+  cursor: pointer;
+}
+
+.btnThree {
+  color: #FFF;
+  transition: all 0.5s;
+  position: relative;
+}
+.btnThree::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: rgba(255,255,255,0.1);
+  transition: all 0.3s;
+}
+.btnThree:hover::before {
+  opacity: 0 ;
+  transform: scale(0.5,0.5);
+}
+.btnThree::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+  transition: all 0.3s;
+  border: 1px solid var(--color-text-accent);
+  transform: scale(1.2,1.2);
+  
+}
+.btnThree:hover::after {
+  opacity: 1;
+  transform: scale(1,1);
 }

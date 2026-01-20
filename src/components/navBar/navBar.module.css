@@ -76,25 +76,6 @@ height: 80px;
   width: 100%;
 }
 
-/* Social Icons */
-.socialIcons {
-  display: none;
-  align-items: center;
-  gap: var(--spacing-md);
-}
-
-.socialLink {
-  color: var(--color-text-secondary);
-  transition: color var(--transition-base);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.socialLink:hover {
-  color: var(--color-text-accent);
-}
-
 /* Mobile Menu Button */
 .mobileMenuBtn {
   display: flex;
@@ -211,14 +192,13 @@ height: 80px;
 @media (min-width: 1024px) {
   .container {
     padding: 0 var(--spacing-xl);
+    justify-content: flex-start;
   }
 
   .navLinks {
     display: flex;
-  }
-
-  .socialIcons {
-    display: flex;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .mobileMenuBtn {

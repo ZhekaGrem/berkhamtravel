@@ -182,13 +182,25 @@
   color: var(--color-text-primary);
 }
 
-.cta svg {
-  transition: transform var(--transition-base);
+.ctaBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  rotate: 45deg;
+  color: var(--color-text-secondary);
+  background-color: var(--color-primary-bg);
+  border: 1px solid var(--color-border);
+  transition: all var(--transition-base);
+
+
+}
+.ctaBox svg{
+   rotate: -45deg;
 }
 
-.cta:hover svg {
-  transform: translateX(4px);
-}
+
 
 /* Tablet and Desktop */
 @media (min-width: 768px) {
