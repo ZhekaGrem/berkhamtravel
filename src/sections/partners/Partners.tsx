@@ -49,8 +49,8 @@ export function Partners() {
               <Image
                 src={partner.logo}
                 alt={partner.name}
-                width={300}
-                height={120}
+                width={400}
+                height={170}
                 className={styles.logo}
               />
             </motion.div>

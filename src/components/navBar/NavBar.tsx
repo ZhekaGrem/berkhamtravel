@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import styles from './navBar.module.css';
-
+import Link from 'next/link'
 const navLinks = [
   { href: '#about', label: 'About' },
   { href: '#services', label: 'Services' },
@@ -41,15 +41,15 @@ export default function NavBar() {
       <nav className={`${styles.nav} ${isScrolled ? styles.scrolled : ''}`}>
         <div className={styles.container}>
           {/* Logo */}
-          <a href="/" className={styles.logo}>
+          <Link href="/" className={styles.logo}>
             <Image
-              src="/logo/Золото на прозорому.png"
+              src="/logo/logo.png"
               alt="Berkham Travel"
-              width={150}
-              height={40}
+              width={300}
+              height={80}
               priority
             />
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <ul className={styles.navLinks}>

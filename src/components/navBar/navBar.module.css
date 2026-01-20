@@ -33,7 +33,7 @@
 }
 
 .logo img {
-  height: 40px;
+height: 80px;
   width: auto;
 }
 
@@ -226,6 +226,6 @@
   }
 
   .logo img {
-    height: 45px;
+    height: 80px;
   }
 }
