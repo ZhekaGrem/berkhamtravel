@@ -105,7 +105,6 @@ export function ExclusiveEvent() {
                 aria-expanded={openCategory === category.id}
               >
                 <span className={styles.accordionTitle}>{category.title}</span>
-                <span className={styles.accordionCount}>{category.items.length}</span>
                 <motion.span
                   className={styles.accordionIcon}
                   animate={{ rotate: openCategory === category.id ? 180 : 0 }}

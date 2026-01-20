@@ -84,6 +84,7 @@
 }
 .titleFirst{
  text-transform: uppercase;
+ font-size: clamp(2.5rem, 7vw, 5rem);
 }
 
 .titleAccent {
