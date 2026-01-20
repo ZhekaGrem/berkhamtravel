@@ -1,0 +1,113 @@
+.partners {
+  padding: var(--spacing-4xl) 0;
+  background-color: var(--color-secondary-bg);
+}
+
+.container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+}
+
+.tagline {
+  display: block;
+  font-family: var(--font-body);
+  font-size: var(--font-size-caption);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-text-accent);
+  margin-bottom: var(--spacing-sm);
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+   background: var(--color-text-accent-gradient-silver);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.titleAccent {
+  color: var(--color-text-accent);
+}
+
+/* Logo Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-lg);
+  align-items: center;
+  justify-items: center;
+}
+
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-md);
+  width: 100%;
+  height: 80px;
+}
+
+.logo {
+  max-width: 100%;
+  max-height: 50px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(100%) brightness(0.7);
+  opacity: 0.6;
+  transition: all var(--transition-base);
+}
+
+.logoWrapper:hover .logo {
+  filter: grayscale(0%) brightness(1);
+  opacity: 1;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .container {
+    padding: 0 var(--spacing-xl);
+  }
+
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-xl);
+  }
+
+  .logoWrapper {
+    height: 100px;
+    padding: var(--spacing-lg);
+  }
+
+  .logo {
+    max-height: 60px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (min-width: 1440px) {
+  .grid {
+    gap: var(--spacing-2xl);
+  }
+
+  .logoWrapper {
+    height: 120px;
+  }
+}

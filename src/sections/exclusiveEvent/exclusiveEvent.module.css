@@ -1,0 +1,218 @@
+.events {
+  padding: var(--spacing-4xl) 0;
+  background-color: var(--color-primary-bg);
+}
+
+.container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+}
+
+.tagline {
+  display: block;
+  font-family: var(--font-body);
+  font-size: var(--font-size-caption);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-text-accent);
+  margin-bottom: var(--spacing-sm);
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+   background: var(--color-text-accent-gradient-silver);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: var(--spacing-md);
+}
+
+.titleAccent {
+  color: var(--color-text-accent);
+}
+
+.subtitle {
+  font-family: var(--font-body);
+  font-size: var(--font-size-body);
+  color: var(--color-text-secondary);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Desktop Grid */
+.gridDesktop {
+  display: none;
+}
+
+.column {
+  padding: var(--spacing-lg);
+  background-color: var(--color-secondary-bg);
+  border: 1px solid var(--color-border);
+}
+
+.columnTitle {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-h3);
+  font-weight: 600;
+  color: var(--color-text-accent);
+  margin: 0 0 var(--spacing-lg);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.eventList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.eventItem {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-family: var(--font-body);
+  font-size: var(--font-size-body);
+  color: var(--color-text-secondary);
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: color var(--transition-base);
+}
+
+.eventItem:last-child {
+  border-bottom: none;
+}
+
+.eventItem:hover {
+  color: var(--color-text-primary);
+}
+
+.eventBullet {
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-text-accent);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Mobile Accordion */
+.accordionMobile {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.accordionItem {
+  border: 1px solid var(--color-border);
+  background-color: var(--color-secondary-bg);
+}
+
+.accordionHeader {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: var(--spacing-md);
+  background: none;
+  border: none;
+  cursor: pointer;
+  gap: var(--spacing-sm);
+}
+
+.accordionHeaderOpen {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.accordionTitle {
+  flex: 1;
+  text-align: left;
+  font-family: var(--font-heading);
+  font-size: var(--font-size-body);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.accordionCount {
+  font-family: var(--font-body);
+  font-size: var(--font-size-small);
+  color: var(--color-text-accent);
+  background-color: rgba(212, 175, 55, 0.1);
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+.accordionIcon {
+  color: var(--color-text-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.accordionContent {
+  overflow: hidden;
+}
+
+.mobileEventList {
+  list-style: none;
+  padding: var(--spacing-md);
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-xs);
+}
+
+.mobileEventItem {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-family: var(--font-body);
+  font-size: var(--font-size-small);
+  color: var(--color-text-secondary);
+  padding: var(--spacing-xs) 0;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .container {
+    padding: 0 var(--spacing-xl);
+  }
+
+  .mobileEventList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .gridDesktop {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+  }
+
+  .accordionMobile {
+    display: none;
+  }
+
+  .column {
+    padding: var(--spacing-xl);
+  }
+}
+
+@media (min-width: 1440px) {
+  .gridDesktop {
+    gap: var(--spacing-xl);
+  }
+
+  .column {
+    padding: var(--spacing-2xl);
+  }
+}
