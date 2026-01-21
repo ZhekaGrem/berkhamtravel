@@ -116,14 +116,14 @@ function ServiceCategory({ category, index }: ServiceCategoryProps) {
 
             {/* Card Content */}
             <div className={styles.cardContent}>
-              <motion.span
+              {/* <motion.span
                 className={styles.cardNumber}
                 animate={{
                   opacity: activeIndex === itemIndex ? 1 : 0.5,
                 }}
               >
                 {String(itemIndex + 1).padStart(2, '0')}
-              </motion.span>
+              </motion.span> */}
 
               <h4 className={styles.cardTitle}>{item.title}</h4>
 
@@ -159,11 +159,11 @@ function ServiceCategory({ category, index }: ServiceCategoryProps) {
               <motion.div
                 key={item.id}
                 className={styles.mobileCard}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: itemIndex * 0.05 }}
               >
-                <div className={styles.mobileCardImage}>
+                <div className={styles.mobileCardImageWrapper}>
                   <Image
                     src={item.image}
                     alt={item.title}
@@ -174,9 +174,6 @@ function ServiceCategory({ category, index }: ServiceCategoryProps) {
                   <div className={styles.mobileCardOverlay} />
                 </div>
                 <div className={styles.mobileCardContent}>
-                  <span className={styles.mobileCardNumber}>
-                    {String(itemIndex + 1).padStart(2, '0')}
-                  </span>
                   <h4 className={styles.mobileCardTitle}>{item.title}</h4>
                   <p className={styles.mobileCardDescription}>{item.description}</p>
                 </div>

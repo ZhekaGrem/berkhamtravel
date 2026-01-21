@@ -1,6 +1,7 @@
 .about {
   padding: var(--spacing-4xl) 0;
   background-color: var(--color-primary-bg);
+  position: relative;
   overflow: hidden;
 }
 
@@ -8,179 +9,144 @@
   max-width: var(--container-max-width);
   margin: 0 auto;
   padding: 0 var(--spacing-md);
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--spacing-2xl);
-  align-items: center;
+  display: flex;
+  justify-content: center; /* Центруємо блок */
 }
 
-/* Image Column */
-.imageWrapper {
-  position: relative;
-  order: 2;
-}
-
-.imageContainer {
-  position: relative;
-  aspect-ratio: 4/5;
-  overflow: hidden;
-}
-
-.image {
-  object-fit: cover;
-  transition: transform var(--transition-slowest);
-}
-
-.imageContainer:hover .image {
-  transform: scale(1.05);
-}
-
-.imageOverlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    transparent 60%,
-    rgba(10, 10, 10, 0.4) 100%
-  );
-}
-
-.imageBorder {
-  position: absolute;
-  top: var(--spacing-md);
-  left: var(--spacing-md);
-  right: calc(var(--spacing-md) * -1);
-  bottom: calc(var(--spacing-md) * -1);
-  border: 1px solid var(--color-text-accent);
-  opacity: 0.3;
-  z-index: -1;
-}
-
-/* Content Column */
+/* Content Wrapper */
 .content {
-  order: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Центруємо елементи всередині */
+  text-align: center;  /* Центруємо текст */
+  max-width: 800px;    /* Ідеальна ширина для читання */
+  width: 100%;
+}
+
+/* Decorative Line at Top */
+.topDivider {
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(to bottom, transparent, var(--color-text-accent), transparent);
+  margin-bottom: var(--spacing-xl);
+  opacity: 0.5;
 }
 
 .tagline {
   display: block;
   font-family: var(--font-body);
-  font-size: var(--font-size-caption);
-  font-weight: 500;
+  font-size: var(--font-size-small); /* Трохи менше, витонченіше */
+  font-weight: 400;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
-    background: var(--color-text-accent-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: var(--spacing-md);
+  letter-spacing: 0.3em; /* Дуже широкі літери */
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-lg);
 }
 
 .title {
   font-family: var(--font-heading);
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 700;
-  background: var(--color-text-accent-gradient-silver);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  line-height: 1.2;
-  margin-bottom: var(--spacing-lg);
+  font-size: clamp(2.5rem, 5vw, 4rem); /* Великий епічний розмір */
+  font-weight: 400; /* Luxury любить тонкі шрифти у великому розмірі */
+  color: var(--color-text-primary); /* Базовий білий/срібний */
+  line-height: 1.1;
+  margin-bottom: var(--spacing-xl);
 }
 
 .titleAccent {
-   background: var(--color-text-accent-gradient);
+  /* Твій золотий градієнт */
+  background: var(--color-text-accent-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  font-style: italic; /* Додає динаміки */
 }
 
 .text {
-  margin-bottom: var(--spacing-xl);
+  overflow-wrap: break-word;
+word-break: normal;
+hyphens: auto;
+  margin-bottom: var(--spacing-2xl);
 }
 
 .text p {
   font-family: var(--font-body);
-  font-size: var(--font-size-body);
+  font-size: var(--font-size-body); /* 16px - 18px */
   color: var(--color-text-secondary);
-  line-height: 1.8;
+  line-height: 1.9; /* Більше повітря між рядками */
   margin-bottom: var(--spacing-md);
+  max-width: 600px; /* Текст вужчий за заголовки для краси */
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.text p:last-child {
-  margin-bottom: 0;
-}
-
-/* Trust Signal */
+/* Trust Signal (Centered Badge Style) */
 .trustSignal {
-  padding: var(--spacing-lg);
-  background-color: var(--color-secondary-bg);
-  border-left: 2px solid var(--color-text-accent);
-  margin-bottom: var(--spacing-xl);
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--spacing-lg) var(--spacing-2xl);
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Тонка рамка */
+  border-radius: 2px;
+  margin-bottom: var(--spacing-2xl);
+  background: linear-gradient(180deg, rgba(255,255,255,0.02) 0%, transparent 100%);
+  transition: border-color 0.3s ease;
 }
 
-.trustBadge {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-md);
-  margin-bottom: var(--spacing-sm);
+.trustSignal:hover {
+  border-color: var(--color-text-accent); /* Золотіє при наведенні */
 }
 
 .trustIcon {
   color: var(--color-text-accent);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin-bottom: var(--spacing-sm);
 }
 
-.trustText {
+.trustContent {
   display: flex;
   flex-direction: column;
+  gap: 4px;
 }
 
 .trustLabel {
   font-family: var(--font-body);
-  font-size: var(--font-size-caption);
+  font-size: 10px;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.2em;
   color: var(--color-text-secondary);
+  opacity: 0.7;
 }
 
 .trustTitle {
   font-family: var(--font-heading);
   font-size: var(--font-size-body);
-  font-weight: 600;
+  letter-spacing: 0.05em;
   color: var(--color-text-primary);
 }
 
-.trustDescription {
-  font-family: var(--font-accent);
-  font-size: var(--font-size-body);
-  font-style: italic;
-  color: var(--color-text-secondary);
-  margin: 0;
-  line-height: 1.6;
-}
-
-/* CTA */
+/* CTA - Minimal Link Style */
 .cta {
   display: inline-flex;
   align-items: center;
   gap: var(--spacing-sm);
   font-family: var(--font-body);
   font-size: var(--font-size-small);
-  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-   background: var(--color-text-accent-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  transition: all var(--transition-base);
+  letter-spacing: 0.2em;
+  color: var(--color-text-primary);
+  padding-bottom: 4px;
+  transition: all 0.3s ease;
 }
 
-.cta:hover {
-  color: var(--color-text-primary);
+.cta:hover{
+  color: var(--color-text-accent);
+  fill: var(--color-text-accent);
+  padding-bottom: 8px; /* Ефект "підняття" */
+  letter-spacing: 0.25em;
+  .ctaBox svg{
+  fill: var(--color-text-accent);
+ }
 }
+ 
 
 .ctaBox {
   display: flex;
@@ -199,46 +165,9 @@
 .ctaBox svg{
    rotate: -45deg;
 }
-
-
-
-/* Tablet and Desktop */
+/* Media Queries */
 @media (min-width: 768px) {
-  .about {
-    padding: var(--spacing-4xl) 0;
-  }
-
-  .container {
-    padding: 0 var(--spacing-xl);
-  }
-}
-
-@media (min-width: 1024px) {
-  .container {
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-4xl);
-  }
-
-  .imageWrapper {
-    order: 1;
-  }
-
-  .content {
-    order: 2;
-    padding-left: var(--spacing-xl);
-  }
-
-  .imageContainer {
-    aspect-ratio: 3/4;
-  }
-}
-
-@media (min-width: 1440px) {
-  .container {
-    gap: var(--spacing-4xl);
-  }
-
-  .content {
-    padding-left: var(--spacing-2xl);
+  .text p {
+     font-size: 1.125rem; /* Трохи більший шрифт на десктопі */
   }
 }

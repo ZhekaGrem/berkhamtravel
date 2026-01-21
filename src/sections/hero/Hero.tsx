@@ -41,14 +41,14 @@ export function Hero() {
 
       {/* Content */}
       <div className={styles.content}>
-        <motion.span
+        {/* <motion.span
           className={styles.tagline}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           Where travel meets elegance
-        </motion.span>
+        </motion.span> */}
 
         <motion.h1
           className={styles.title}
@@ -59,9 +59,7 @@ export function Hero() {
           <span className={styles.titleFirst}>Berkham</span>
           <br />
           <span className={styles.titleAccent}>Private Travel </span>
-          <br />
           <span className={styles.titleAccent}> & </span>
-          <br />
           <span className={styles.titleAccent}>Concierge</span>
         </motion.h1>
 

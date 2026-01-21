@@ -81,8 +81,8 @@ height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 70px;
+  height: 70px;
   background: none;
   border: none;
   cursor: pointer;
@@ -91,44 +91,53 @@ height: 80px;
 
 .hamburger {
   position: relative;
-  width: 24px;
-  height: 16px;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  overflow: hidden;
 }
 
 .hamburger span {
   position: absolute;
-  left: 0;
-  width: 100%;
-  height: 2px;
+  height: 1px;
+  width: 30px;
+  border-radius: 4px;
+  cursor: pointer;
+
   background-color: var(--color-text-primary);
-  transition: all var(--transition-base);
+  transition: all var(--transition-slow);
 }
 
 .hamburger span:nth-child(1) {
-  top: 0;
+  transform: translateY(-15px);
+  width: 25px;
+  left: 15px;
+}
+
+
+.hamburger.open span:nth-child(1) {
+   width: 40px;
+  transform: translateY(0px) rotate(45deg);
+  transition-delay: 0.125s;
 }
 
 .hamburger span:nth-child(2) {
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.hamburger span:nth-child(3) {
-  bottom: 0;
-}
-
-.hamburger.open span:nth-child(1) {
-  top: 50%;
-  transform: translateY(-50%) rotate(45deg);
+  transform: translateY(15px);
+  width: 15px;
+  left: 15px;
 }
 
 .hamburger.open span:nth-child(2) {
-  opacity: 0;
+ width: 40px;
+  transform: translateY(0px) rotate(315deg);
+  transition-delay: 0.125s;
 }
 
 .hamburger.open span:nth-child(3) {
-  bottom: 50%;
-  transform: translateY(50%) rotate(-45deg);
+  transform: translateX(60px);
 }
 
 /* Mobile Menu */

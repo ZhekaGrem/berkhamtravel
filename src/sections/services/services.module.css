@@ -130,18 +130,6 @@
   z-index: 2;
 }
 
-.cardNumber {
-  display: block;
-  font-family: var(--font-body);
-  font-size: var(--font-size-caption);
-  font-weight: 500;
-   background: var(--color-text-accent-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  letter-spacing: 0.1em;
-  margin-bottom: var(--spacing-xs);
-}
 
 .cardTitle {
   font-family: var(--font-heading);
@@ -150,6 +138,11 @@
   color: var(--color-text-primary);
   margin: 0 0 var(--spacing-sm);
   white-space: nowrap;
+  text-shadow: 
+  -1px -1px 2px rgba(0, 0, 0, 0.8),
+  1px -1px 2px rgba(0, 0, 0, 0.8),
+  -1px 1px 2px rgba(0, 0, 0, 0.8),
+  1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 .cardActive .cardTitle {
@@ -159,62 +152,53 @@
 .cardDescription {
   font-family: var(--font-body);
   font-size: var(--font-size-small);
-  color: var(--color-text-secondary);
+  color: var(--color-text-primary);
   line-height: 1.6;
   margin: 0;
   max-width: 400px;
+text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9);
+overflow-wrap: break-word;
+word-break: normal;
+hyphens: auto;
 }
 
 /* Mobile Accordion */
 .accordionMobile {
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
 }
 
 .mobileCard {
-  display: flex;
-  gap: var(--spacing-md);
-  padding: var(--spacing-md) 0;
-  border-bottom: 1px solid var(--color-border);
-}
-
-.mobileCard:last-child {
-  border-bottom: none;
-}
-
-.mobileCardImage {
   position: relative;
-  width: 100px;
-  height: 100px;
-  flex-shrink: 0;
+  height: 200px;
   overflow: hidden;
+  border-radius: 4px;
+}
+
+.mobileCardImageWrapper {
+  position: absolute;
+  inset: 0;
 }
 
 .mobileCardOverlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    135deg,
+    180deg,
     rgba(10, 10, 10, 0.2) 0%,
-    rgba(10, 10, 10, 0.5) 100%
+    rgba(10, 10, 10, 0.85) 100%
   );
 }
 
 .mobileCardContent {
-  flex: 1;
-  min-width: 0;
-}
-
-.mobileCardNumber {
-  display: block;
-  font-family: var(--font-body);
-  font-size: var(--font-size-caption);
-  font-weight: 500;
-   background: var(--color-text-accent-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  letter-spacing: 0.1em;
-  margin-bottom: var(--spacing-xs);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--spacing-md);
+  z-index: 2;
 }
 
 .mobileCardTitle {
@@ -223,18 +207,27 @@
   font-weight: 600;
   color: var(--color-text-primary);
   margin: 0 0 var(--spacing-xs);
+  text-shadow:
+    -1px -1px 2px rgba(0, 0, 0, 0.8),
+    1px -1px 2px rgba(0, 0, 0, 0.8),
+    -1px 1px 2px rgba(0, 0, 0, 0.8),
+    1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 .mobileCardDescription {
   font-family: var(--font-body);
   font-size: var(--font-size-small);
-  color: var(--color-text-secondary);
+  color: var(--color-text-primary);
   line-height: 1.5;
   margin: 0;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  overflow-wrap: break-word;
+  word-break: normal;
+  hyphens: auto;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9);
 }
 
 /* Tablet */
@@ -247,9 +240,8 @@
     padding: 0 var(--spacing-xl);
   }
 
-  .mobileCardImage {
-    width: 150px;
-    height: 120px;
+  .mobileCard {
+    height: 250px;
   }
 
   .mobileCardDescription {

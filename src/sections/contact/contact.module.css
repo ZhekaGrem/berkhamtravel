@@ -6,7 +6,14 @@
 .container {
   max-width: var(--container-max-width);
   margin: 0 auto;
-  padding: 0 var(--spacing-md);
+  padding: 0 var(--spacing-sm);
+  overflow: hidden;
+}
+
+@media (min-width: 480px) {
+  .container {
+    padding: 0 var(--spacing-md);
+  }
 }
 
 /* Header */
@@ -109,15 +116,19 @@ a.contactValue:hover {
 /* Quick Contact Buttons */
 .quickContact {
   display: flex;
-  gap: var(--spacing-md);
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
   margin-bottom: var(--spacing-lg);
 }
 
 .quickBtn {
   display: inline-flex;
   align-items: center;
-  gap: var(--spacing-sm);
-  padding: var(--spacing-sm) var(--spacing-lg);
+  justify-content: center;
+  gap: var(--spacing-xs);
+  flex: 1 1 auto;
+  min-width: 140px;
+  padding: var(--spacing-sm) var(--spacing-md);
   font-family: var(--font-body);
   font-size: var(--font-size-small);
   font-weight: 500;
@@ -125,6 +136,18 @@ a.contactValue:hover {
   background-color: var(--color-secondary-bg);
   border: 1px solid var(--color-border);
   transition: all var(--transition-base);
+}
+
+@media (min-width: 480px) {
+  .quickContact {
+    gap: var(--spacing-md);
+  }
+
+  .quickBtn {
+    flex: 0 0 auto;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    gap: var(--spacing-sm);
+  }
 }
 
 .quickBtn:hover {
@@ -153,18 +176,23 @@ a.contactValue:hover {
 /* Form */
 .formWrapper {
   order: 1;
+  min-width: 0; /* Prevents flex overflow */
+  overflow: hidden;
 }
 
 .form {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-lg);
+  gap: var(--spacing-md);
+  width: 100%;
 }
 
 .formGroup {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-xs);
+  width: 100%;
+  min-width: 0;
 }
 
 .label {
@@ -179,12 +207,16 @@ a.contactValue:hover {
 .input,
 .textarea {
   width: 100%;
-  padding: var(--spacing-md);
+  max-width: 100%;
+  padding: var(--spacing-sm) var(--spacing-md);
   font-family: var(--font-body);
-  font-size: var(--font-size-body);
+  font-size: 16px; /* Prevents zoom on iOS */
   color: var(--color-text-primary);
   background-color: var(--color-secondary-bg);
   border: 1px solid var(--color-border);
+  border-radius: 0;
+  -webkit-appearance: none;
+  appearance: none;
   transition: border-color var(--transition-base);
 }
 
@@ -205,7 +237,8 @@ a.contactValue:hover {
 }
 
 .submitBtn {
-  padding: var(--spacing-md) var(--spacing-xl);
+  width: 100%;
+  padding: var(--spacing-md) var(--spacing-lg);
   font-family: var(--font-body);
   font-size: var(--font-size-small);
   font-weight: 500;
@@ -214,8 +247,17 @@ a.contactValue:hover {
   color: var(--color-primary-bg);
   background-color: var(--color-text-accent);
   border: none;
+  border-radius: 0;
   cursor: pointer;
   transition: all var(--transition-base);
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+@media (min-width: 480px) {
+  .submitBtn {
+    width: auto;
+  }
 }
 
 .submitBtn:hover:not(:disabled) {
@@ -250,8 +292,8 @@ a.contactValue:hover {
     padding: 0 var(--spacing-xl);
   }
 
-  .quickContact {
-    flex-wrap: wrap;
+  .form {
+    gap: var(--spacing-lg);
   }
 }
 

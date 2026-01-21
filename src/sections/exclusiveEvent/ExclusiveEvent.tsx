@@ -99,6 +99,18 @@ export function ExclusiveEvent() {
         <div className={styles.accordionMobile}>
           {eventsData.map((category) => (
             <div key={category.id} className={styles.accordionItem}>
+              {/* Background Image */}
+              <div className={styles.accordionBackground}>
+                <Image
+                  src={categoryBackgrounds[category.id] || '/premium_berkhamtravel_cinema.jpg'}
+                  alt=""
+                  fill
+                  quality={60}
+                  sizes="100vw"
+                />
+              </div>
+              <div className={styles.accordionOverlay} />
+
               <button
                 className={`${styles.accordionHeader} ${openCategory === category.id ? styles.accordionHeaderOpen : ''}`}
                 onClick={() => setOpenCategory(openCategory === category.id ? null : category.id)}
@@ -110,9 +122,9 @@ export function ExclusiveEvent() {
                   animate={{ rotate: openCategory === category.id ? 180 : 0 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  {/* <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                     <path d="M6 9l6 6 6-6" />
-                  </svg>
+                  </svg> */}
                 </motion.span>
               </button>
 
