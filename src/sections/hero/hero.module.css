@@ -82,7 +82,7 @@
   
   font-family: var(--font-heading);
   font-size: clamp(2rem, 7vw, 4.5rem);
-  font-weight: 700;
+  font-weight: 400;
   background: var(--color-text-accent-gradient-silver);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

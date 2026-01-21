@@ -36,7 +36,7 @@
   display: block;
   font-family: var(--font-body);
   font-size: var(--font-size-small); /* Трохи менше, витонченіше */
-  font-weight: 400;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.3em; /* Дуже широкі літери */
   color: var(--color-text-secondary);

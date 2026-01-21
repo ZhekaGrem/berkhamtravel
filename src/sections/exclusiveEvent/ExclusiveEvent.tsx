@@ -14,7 +14,22 @@ const categoryBackgrounds: Record<string, string> = {
 };
 
 export function ExclusiveEvent() {
-  const [openCategory, setOpenCategory] = useState<string | null>('sporting');
+  // Mobile: all categories open by default, can toggle individually
+  const [openCategories, setOpenCategories] = useState<Set<string>>(
+    () => new Set(['sporting', 'entertainment', 'redCarpet'])
+  );
+
+  const toggleCategory = (id: string) => {
+    setOpenCategories((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) {
+        next.delete(id);
+      } else {
+        next.add(id);
+      }
+      return next;
+    });
+  };
 
   return (
     <section id="events" className={styles.events}>
@@ -114,14 +129,14 @@ export function ExclusiveEvent() {
               <div className={styles.accordionOverlay} />
 
               <button
-                className={`${styles.accordionHeader} ${openCategory === category.id ? styles.accordionHeaderOpen : ''}`}
-                onClick={() => setOpenCategory(openCategory === category.id ? null : category.id)}
-                aria-expanded={openCategory === category.id}
+                className={`${styles.accordionHeader} ${openCategories.has(category.id) ? styles.accordionHeaderOpen : ''}`}
+                onClick={() => toggleCategory(category.id)}
+                aria-expanded={openCategories.has(category.id)}
               >
                 <span className={styles.accordionTitle}>{category.title}</span>
                 <motion.span
                   className={styles.accordionIcon}
-                  animate={{ rotate: openCategory === category.id ? 180 : 0 }}
+                  animate={{ rotate: openCategories.has(category.id) ? 180 : 0 }}
                   transition={{ duration: 0.3 }}
                 >
                   {/* <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -131,7 +146,7 @@ export function ExclusiveEvent() {
               </button>
 
               <AnimatePresence>
-                {openCategory === category.id && (
+                {openCategories.has(category.id) && (
                   <motion.div
                     className={styles.accordionContent}
                     initial={{ height: 0, opacity: 0 }}

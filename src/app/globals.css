@@ -37,7 +37,7 @@
   --color-highlight: #2a2a2a;
 
   /* Typography - base fallbacks */
-  --font-heading: "Playfair Display", Georgia, serif;
+  --font-heading: "Antic Didone", serif;
   --font-body: "Raleway", "Helvetica Neue", sans-serif;
   --font-accent: "Cormorant", Georgia, serif;
 
@@ -108,7 +108,7 @@ html {
 body {
   /* Override with Next.js font variables when available */
   --font-heading:
-    var(--font-playfairDisplay), "Playfair Display", Georgia, serif;
+    var(--font-playfairDisplay),"Antic Didone", serif;
   --font-body: var(--font-montserrat), "Raleway", "Helvetica Neue", sans-serif;
   --font-accent: var(--font-cormorant), "Cormorant", Georgia, serif;
 
@@ -135,7 +135,7 @@ h4,
 h5,
 h6 {
   font-family: var(--font-heading);
-  font-weight: 700;
+  font-weight: 400;
   color: var(--color-text-primary);
   line-height: 1.2;
   letter-spacing: 0.02em;
@@ -144,7 +144,7 @@ h6 {
 
 h1 {
   font-size: var(--font-size-hero);
-  letter-spacing: 0.01em;
+  letter-spacing: 0.15em;
 }
 
 h2 {
