@@ -35,20 +35,20 @@ export function Contact() {
 
     // Валідація імені (мінімум 2 символи)
     if (!formData.name.trim()) {
-      newErrors.name = "Ім'я є обов'язковим";
+      newErrors.name = "Name is required";
       isValid = false;
     } else if (formData.name.trim().length < 2) {
-      newErrors.name = "Ім'я має містити щонайменше 2 символи";
+      newErrors.name = "Name must be at least 2 characters long";
       isValid = false;
     }
 
     // Валідація Email (Regex)
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!formData.email.trim()) {
-      newErrors.email = "Email є обов'язковим";
+      newErrors.email = "Email is required";
       isValid = false;
     } else if (!emailRegex.test(formData.email)) {
-      newErrors.email = "Введіть коректний email";
+      newErrors.email = "Please enter a valid email address";
       isValid = false;
     }
 
@@ -58,20 +58,20 @@ export function Contact() {
     const phoneDigits = formData.phone.replace(/\D/g, '');
     
     if (!formData.phone.trim()) {
-      newErrors.phone = "Телефон є обов'язковим";
+      newErrors.phone = "Phone number is required";
       isValid = false;
     } else if (phoneDigits.length < 6 || !phoneRegex.test(formData.phone.replace(/\s/g, ''))) { 
       // Прибираємо пробіли для перевірки regex, якщо потрібно
-       newErrors.phone = "Введіть коректний номер телефону";
+       newErrors.phone = "Please enter a valid phone number";
        isValid = false;
     }
 
     // Валідація повідомлення (мінімум 10 символів)
     if (!formData.message.trim()) {
-      newErrors.message = "Повідомлення не може бути порожнім";
+      newErrors.message = "Message cannot be empty";
       isValid = false;
-    } else if (formData.message.trim().length < 10) {
-      newErrors.message = "Будь ласка, напишіть детальніше (мін. 10 символів)";
+    } else if (formData.message.trim().length < 5) {
+      newErrors.message = "Please provide more details (min. 5 characters)";
       isValid = false;
     }
 

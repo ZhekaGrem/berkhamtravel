@@ -47,7 +47,10 @@
   font-family: var(--font-heading);
   font-size: clamp(2.5rem, 5vw, 4rem); /* Великий епічний розмір */
   font-weight: 400; /* Luxury любить тонкі шрифти у великому розмірі */
-  color: var(--color-text-primary); /* Базовий білий/срібний */
+  background: var(--color-text-accent-gradient-silver);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;/* Базовий білий/срібний */
   line-height: 1.1;
   margin-bottom: var(--spacing-xl);
 }
