@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { Playfair_Display, Raleway, Cormorant } from "next/font/google";
 import Script from "next/script";
+import { GoogleAnalytics } from '@next/third-parties/google';
 
 const playfairDisplay = Playfair_Display({
   variable: "--font-playfairDisplay",
@@ -235,7 +236,7 @@ export default function RootLayout({
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
-
+<GoogleAnalytics gaId="G-1TL6LPN01T" />
       </head>
       <body className={`${playfairDisplay.variable} ${montserrat.variable} ${cormorant.variable}`}>
         {children}
