@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Image from 'next/image';
+import OptimizedImage from '@/components/optimizedImage';
 import { servicesData } from '@/data';
 import styles from './services.module.css';
 
@@ -98,11 +98,13 @@ function ServiceCategory({ category, index }: ServiceCategoryProps) {
           >
             {/* Background Image */}
             <div className={styles.cardImageWrapper}>
-              <Image
+              <OptimizedImage
                 src={item.image}
                 alt={item.title}
                 fill
                 quality={85}
+                sizes="(max-width: 1024px) 100vw, 33vw"
+                preloadMargin="400px"
                 className={styles.cardImage}
               />
               <motion.div
@@ -164,11 +166,13 @@ function ServiceCategory({ category, index }: ServiceCategoryProps) {
                 transition={{ delay: itemIndex * 0.05 }}
               >
                 <div className={styles.mobileCardImageWrapper}>
-                  <Image
+                  <OptimizedImage
                     src={item.image}
                     alt={item.title}
                     fill
                     quality={80}
+                    sizes="100vw"
+                    preloadMargin="300px"
                     className={styles.cardImage}
                   />
                   <div className={styles.mobileCardOverlay} />

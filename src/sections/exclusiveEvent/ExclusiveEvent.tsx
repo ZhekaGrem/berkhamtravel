@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Image from 'next/image';
+import OptimizedImage from '@/components/optimizedImage';
 import { eventsData } from '@/data';
 import styles from './exclusiveEvent.module.css';
 
@@ -62,12 +62,13 @@ export function ExclusiveEvent() {
             >
               {/* Background Image */}
               <div className={styles.columnBackground}>
-                <Image
+                <OptimizedImage
                   src={categoryBackgrounds[category.id] || '/premium_berkhamtravel_cinema.jpg'}
                   alt=""
                   fill
                   quality={75}
                   sizes="(max-width: 1024px) 100vw, 33vw"
+                  preloadMargin="400px"
                 />
               </div>
               <div className={styles.columnOverlay} />
@@ -101,12 +102,13 @@ export function ExclusiveEvent() {
             <div key={category.id} className={styles.accordionItem}>
               {/* Background Image */}
               <div className={styles.accordionBackground}>
-                <Image
+                <OptimizedImage
                   src={categoryBackgrounds[category.id] || '/premium_berkhamtravel_cinema.jpg'}
                   alt=""
                   fill
                   quality={60}
                   sizes="100vw"
+                  preloadMargin="300px"
                 />
               </div>
               <div className={styles.accordionOverlay} />

@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
+import OptimizedImage from '@/components/optimizedImage';
 import { destinations } from '@/data';
 import styles from './destinations.module.css';
 
@@ -41,14 +41,13 @@ export function Destinations() {
               transition={{ duration: 0.5, delay: index * 0.05 }}
             >
               <div className={styles.cardImageWrapper}>
-                {/* Placeholder gradient until real images are added */}
-                <div className={styles.placeholder} />
-                {/* Uncomment when images are available */}
-                <Image
+                <OptimizedImage
                   src={destination.image}
                   alt={destination.name}
                   fill
                   quality={80}
+                  sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                  preloadMargin="500px"
                   className={styles.cardImage}
                 />
                 <div className={styles.cardOverlay} />

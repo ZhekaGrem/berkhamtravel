@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
+import OptimizedImage from '@/components/optimizedImage';
 import { partners } from '@/data';
 import styles from './partners.module.css';
 
@@ -46,11 +46,12 @@ export function Partners() {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.05 }}
             >
-              <Image
+              <OptimizedImage
                 src={partner.logo}
                 alt={partner.name}
                 width={400}
                 height={170}
+                preloadMargin="400px"
                 className={styles.logo}
               />
             </motion.div>

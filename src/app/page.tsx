@@ -11,6 +11,8 @@ import {
   Footer
 } from '@/sections';
 
+export const revalidate = 43200; // 12 hours ISR
+
 export default function Home() {
   return (
     <>
