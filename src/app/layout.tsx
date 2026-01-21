@@ -237,6 +237,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* DNS prefetch and preconnect for external resources */}
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.clarity.ms" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+
         {/* Preload critical hero image for LCP */}
         <link
           rel="preload"
