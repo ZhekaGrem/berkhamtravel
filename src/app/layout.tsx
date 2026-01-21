@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import { Playfair_Display, Raleway , Cormorant } from "next/font/google";
+import { Playfair_Display, Raleway, Cormorant } from "next/font/google";
 import Script from "next/script";
 
 const playfairDisplay = Playfair_Display({
@@ -9,7 +9,7 @@ const playfairDisplay = Playfair_Display({
   weight: ["400", "500", "600", "700"],
 });
 
-const montserrat = Raleway ({
+const montserrat = Raleway({
   variable: "--font-montserrat",
   subsets: ["latin"],
 });
@@ -31,7 +31,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://berkhamtravel.com'),
+  metadataBase: new URL('https://berkhamtrvl.com'),
   title: {
     default: "Berkham Private Travel & Concierge | Luxury Travel Services",
     template: "%s | Berkham Travel"
@@ -54,6 +54,18 @@ export const metadata: Metadata = {
     "exclusive events",
     "lifestyle management"
   ],
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/icon0.svg', type: 'image/svg+xml' },
+      { url: '/icon1.png', type: 'image/png', sizes: '32x32' }
+    ],
+    shortcut: '/favicon.ico',
+    apple: [
+      { url: '/apple-icon.png' },
+      { url: '/apple-icon.png', sizes: '180x180', type: 'image/png' }
+    ],
+  },
   authors: [{ name: "Berkham Travel" }],
   creator: "Berkham Private Travel & Concierge",
   publisher: "Berkham Private Travel & Concierge",
@@ -68,7 +80,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://berkhamtravel.com',
+    url: 'https://berkhamtrvl.com',
     title: 'Berkham Private Travel & Concierge | Luxury Travel Services',
     description:
       'Bespoke luxury travel experiences, private aviation, yacht charters, and exclusive concierge services. Where travel meets elegance.',
@@ -114,12 +126,12 @@ const structuredData = {
   "@graph": [
     {
       "@type": "Organization",
-      "@id": "https://berkhamtravel.com/#organization",
+      "@id": "https://berkhamtrvl.com/#organization",
       "name": "Berkham Private Travel & Concierge",
-      "url": "https://berkhamtravel.com",
+      "url": "https://berkhamtrvl.com",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://berkhamtravel.com/logo/logo.png",
+        "url": "https://berkhamtrvl.com/logo/logo.png",
         "width": 300,
         "height": 80
       },
@@ -138,12 +150,12 @@ const structuredData = {
     },
     {
       "@type": "TravelAgency",
-      "@id": "https://berkhamtravel.com/#business",
+      "@id": "https://berkhamtrvl.com/#business",
       "name": "Berkham Private Travel & Concierge",
       "description": "Bespoke luxury travel experiences, private aviation, yacht charters, and exclusive concierge services for discerning clients worldwide.",
-      "url": "https://berkhamtravel.com",
+      "url": "https://berkhamtrvl.com",
       "telephone": "+33679105270",
-      "email": "info@berkhamtravel.com",
+      "email": "info@berkhamtrvl.com",
       "priceRange": "$$$$$",
       "address": {
         "@type": "PostalAddress",
@@ -199,11 +211,11 @@ const structuredData = {
     },
     {
       "@type": "WebSite",
-      "@id": "https://berkhamtravel.com/#website",
-      "url": "https://berkhamtravel.com",
+      "@id": "https://berkhamtrvl.com/#website",
+      "url": "https://berkhamtrvl.com",
       "name": "Berkham Private Travel & Concierge",
       "publisher": {
-        "@id": "https://berkhamtravel.com/#organization"
+        "@id": "https://berkhamtrvl.com/#organization"
       }
     }
   ]
@@ -223,6 +235,7 @@ export default function RootLayout({
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
+       
       </head>
       <body className={`${playfairDisplay.variable} ${montserrat.variable} ${cormorant.variable}`}>
         {children}
