@@ -11,12 +11,12 @@ export default function manifest(): MetadataRoute.Manifest {
     theme_color: '#D4AF37',
     icons: [
       {
-        src: '/icon1.png',
+        src: 'https://www.berkhamtrvl.com/icon1.png',
         sizes: '192x192',
         type: 'image/png',
       },
       {
-        src: '/apple-icon.png',
+        src: 'https://www.berkhamtrvl.com/apple-icon.png',
         sizes: '180x180',
         type: 'image/png',
       },

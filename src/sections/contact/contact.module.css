@@ -318,3 +318,21 @@ a.contactValue:hover {
     gap: var(--spacing-4xl);
   }
 }
+/* Додайте це до вашого contact.module.css */
+
+.errorMessageText {
+  color: #ef4444; /* Червоний колір */
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+.inputError {
+  border-color: #ef4444 !important; /* Червона рамка для input/textarea */
+  outline-color: #ef4444 !important;
+}
+
+/* Переконайтеся, що transition додано до базового класу input для плавної зміни кольору */
+.input, .textarea {
+  transition: border-color 0.2s ease;
+}

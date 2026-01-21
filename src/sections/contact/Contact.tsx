@@ -11,6 +11,9 @@ interface FormData {
   message: string;
 }
 
+// Тип для об'єкта помилок (ключі такі ж, як у форми, значення - текст помилки)
+type FormErrors = Partial<Record<keyof FormData, string>>;
+
 export function Contact() {
   const [formData, setFormData] = useState<FormData>({
     name: '',
@@ -18,17 +21,84 @@ export function Contact() {
     phone: '',
     message: '',
   });
+  
+  // Стейт для помилок
+  const [errors, setErrors] = useState<FormErrors>({});
+  
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  // Функція валідації
+  const validateForm = (): boolean => {
+    const newErrors: FormErrors = {};
+    let isValid = true;
+
+    // Валідація імені (мінімум 2 символи)
+    if (!formData.name.trim()) {
+      newErrors.name = "Ім'я є обов'язковим";
+      isValid = false;
+    } else if (formData.name.trim().length < 2) {
+      newErrors.name = "Ім'я має містити щонайменше 2 символи";
+      isValid = false;
+    }
+
+    // Валідація Email (Regex)
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!formData.email.trim()) {
+      newErrors.email = "Email є обов'язковим";
+      isValid = false;
+    } else if (!emailRegex.test(formData.email)) {
+      newErrors.email = "Введіть коректний email";
+      isValid = false;
+    }
+
+    // Валідація телефону (допускає +, пробіли, дужки, дефіси, цифри)
+    const phoneRegex = /^[+]?[(]?[0-9]{1,4}[)]?[-\s./0-9]*$/;
+    // Або простіша перевірка на мінімальну кількість цифр, якщо формат гнучкий:
+    const phoneDigits = formData.phone.replace(/\D/g, '');
+    
+    if (!formData.phone.trim()) {
+      newErrors.phone = "Телефон є обов'язковим";
+      isValid = false;
+    } else if (phoneDigits.length < 6 || !phoneRegex.test(formData.phone.replace(/\s/g, ''))) { 
+      // Прибираємо пробіли для перевірки regex, якщо потрібно
+       newErrors.phone = "Введіть коректний номер телефону";
+       isValid = false;
+    }
+
+    // Валідація повідомлення (мінімум 10 символів)
+    if (!formData.message.trim()) {
+      newErrors.message = "Повідомлення не може бути порожнім";
+      isValid = false;
+    } else if (formData.message.trim().length < 10) {
+      newErrors.message = "Будь ласка, напишіть детальніше (мін. 10 символів)";
+      isValid = false;
+    }
+
+    setErrors(newErrors);
+    return isValid;
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    
+    // Очищуємо помилку конкретного поля при вводі даних
+    if (errors[name as keyof FormData]) {
+      setErrors((prev) => ({ ...prev, [name]: undefined }));
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Запускаємо валідацію перед відправкою
+    if (!validateForm()) {
+      return; // Якщо є помилки, зупиняємо відправку
+    }
+
     setIsSubmitting(true);
+    setSubmitStatus('idle'); // Скидаємо статус перед новою спробою
 
     try {
       const response = await fetch('/api/contact', {
@@ -40,6 +110,7 @@ export function Contact() {
       if (response.ok) {
         setSubmitStatus('success');
         setFormData({ name: '', email: '', phone: '', message: '' });
+        setErrors({}); // Очищуємо помилки
       } else {
         setSubmitStatus('error');
       }
@@ -54,7 +125,7 @@ export function Contact() {
   return (
     <section id="contact" className={styles.contact}>
       <div className={styles.container}>
-        {/* Header */}
+        {/* Header (без змін) */}
         <div className={styles.header}>
           <motion.span
             className={styles.tagline}
@@ -77,7 +148,7 @@ export function Contact() {
         </div>
 
         <div className={styles.grid}>
-          {/* Contact Info */}
+          {/* Contact Info (без змін) */}
           <motion.div
             className={styles.info}
             initial={{ opacity: 0, x: -30 }}
@@ -85,7 +156,7 @@ export function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <p className={styles.infoText}>
+             <p className={styles.infoText}>
               Ready to begin your journey? Contact us directly or fill out the form
               and we&apos;ll get back to you within 24 hours.
             </p>
@@ -140,7 +211,7 @@ export function Contact() {
               </a>
             </div>
 
-            {/* Social */}
+            {/* Social Links (без змін) */}
             <a
               href="https://www.instagram.com/berkhamtravel/"
               target="_blank"
@@ -162,19 +233,20 @@ export function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <form onSubmit={handleSubmit} className={styles.form}>
+            <form onSubmit={handleSubmit} className={styles.form} noValidate>
               <div className={styles.formGroup}>
                 <label htmlFor="name" className={styles.label}>Name</label>
-                <input
+               <input
                   type="text"
                   id="name"
                   name="name"
+                  autoComplete="name" 
                   value={formData.name}
                   onChange={handleChange}
-                  required
-                  className={styles.input}
+                  className={`${styles.input} ${errors.name ? styles.inputError : ''}`}
                   placeholder="Your name"
                 />
+                {errors.name && <span className={styles.errorMessageText}>{errors.name}</span>}
               </div>
 
               <div className={styles.formGroup}>
@@ -182,13 +254,15 @@ export function Contact() {
                 <input
                   type="email"
                   id="email"
+                  autoComplete="email"
                   name="email"
+                  inputMode="email"
                   value={formData.email}
                   onChange={handleChange}
-                  required
-                  className={styles.input}
+                  className={`${styles.input} ${errors.email ? styles.inputError : ''}`}
                   placeholder="your@email.com"
                 />
+                {errors.email && <span className={styles.errorMessageText}>{errors.email}</span>}
               </div>
 
               <div className={styles.formGroup}>
@@ -197,12 +271,13 @@ export function Contact() {
                   type="tel"
                   id="phone"
                   name="phone"
+                  autoComplete="tel"
                   value={formData.phone}
                   onChange={handleChange}
-                  required
-                  className={styles.input}
+                  className={`${styles.input} ${errors.phone ? styles.inputError : ''}`}
                   placeholder="+1 234 567 890"
                 />
+                 {errors.phone && <span className={styles.errorMessageText}>{errors.phone}</span>}
               </div>
 
               <div className={styles.formGroup}>
@@ -212,11 +287,11 @@ export function Contact() {
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  required
-                  className={styles.textarea}
+                  className={`${styles.textarea} ${errors.message ? styles.inputError : ''}`}
                   placeholder="Tell us about your travel plans..."
                   rows={5}
                 />
+                {errors.message && <span className={styles.errorMessageText}>{errors.message}</span>}
               </div>
 
               <button

@@ -57,16 +57,17 @@ export const metadata: Metadata = {
   ],
   icons: {
     icon: [
-      { url: '/favicon.ico', sizes: 'any' },
-      { url: '/icon0.svg', type: 'image/svg+xml' },
-      { url: '/icon1.png', type: 'image/png', sizes: '32x32' }
+      { url: 'https://www.berkhamtrvl.com/favicon.ico',  sizes: '48x48' },
+      { url: 'https://www.berkhamtrvl.com/icon0.svg', type: 'image/svg+xml' },
+      { url: 'https://www.berkhamtrvl.com/icon1.png', type: 'image/png', sizes: '96x96' }
     ],
-    shortcut: '/favicon.ico',
+    shortcut: 'https://www.berkhamtrvl.com/favicon.ico',
     apple: [
-      { url: '/apple-icon.png' },
-      { url: '/apple-icon.png', sizes: '180x180', type: 'image/png' }
+      { url: 'https://www.berkhamtrvl.com/apple-icon.png' },
+      { url: 'https://www.berkhamtrvl.com/apple-icon.png', sizes: '180x180', type: 'image/png' }
     ],
   },
+ 
   authors: [{ name: "Berkham Travel" }],
   creator: "Berkham Private Travel & Concierge",
   publisher: "Berkham Private Travel & Concierge",
