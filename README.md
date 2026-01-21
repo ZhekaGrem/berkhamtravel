@@ -26,28 +26,27 @@ Backend: Telegram Bot API
 ### Кольори
 
 ```css
---color-primary-bg: #0A0A0A; /* Основний фон */
---color-secondary-bg: #1A1A1A;/* Другорядний фон */
---color-text-primary: #F5F5F5;/* Основний текст */
---color-text-accent: #D4AF37; /* Акцентний текст (gold) */
---color-text-secondary: #8A8A8A; /* Стандартний текст (сірий) */
---color-border: rgba(212, 175, 55, 0.15);/* Gold border */
+--color-primary-bg: #0a0a0a; /* Основний фон */
+--color-secondary-bg: #1a1a1a; /* Другорядний фон */
+--color-text-primary: #f5f5f5; /* Основний текст */
+--color-text-accent: #d4af37; /* Акцентний текст (gold) */
+--color-text-secondary: #8a8a8a; /* Стандартний текст (сірий) */
+--color-border: rgba(212, 175, 55, 0.15); /* Gold border */
 --color-overlay: rgba(10, 10, 10, 0.92);
---color-highlight: #2A2A2A; 
- 
+--color-highlight: #2a2a2a;
 ```
 
 ### Типографія
 
 ```css
 /* Заголовки */
-font-family: 'Bodoni Moda', serif;
+font-family: "Bodoni Moda", serif;
 
 /* Основний текст */
-font-family: 'Raleway', sans-serif;
+font-family: "Raleway", sans-serif;
 
 /* Акцентний/Рукописний */
-font-family: 'Cormorant', italic;
+font-family: "Cormorant", italic;
 ```
 
 ### Font Sizes
@@ -87,6 +86,7 @@ lg: 16px
 ## 📐 Структура сторінки
 
 ### 1. Navigation Bar (Fixed)
+
 - Висота: 80px
 - Background: rgba(17, 17, 17, 0.8) з backdrop-blur
 - Border-bottom: 1px solid rgba(235, 192, 76, 0.2)
@@ -94,18 +94,21 @@ lg: 16px
 - Mobile: Hamburger menu з fullscreen overlay
 
 ### 2. Hero Section (100vh)
+
 - Full-screen background image або video
 - Gradient overlay: linear-gradient(180deg, rgba(17,17,17,0.5) 0%, rgba(17,17,17,0.7) 100%)
 - Centered content з fade-in animation
 - Scroll indicator (animated arrow)
 
 ### 3. Trust Signal Section
+
 - Padding: 64px 0
 - Leading Hotels of The World badge
 - Centered layout, max-width: 800px
 - Subtle pulse animation на badge
 
 ### 4. About Us Section
+
 - Two-column grid (desktop) / Stack (mobile)
 - Padding: 96px 0
 - Image з parallax effect
@@ -113,12 +116,14 @@ lg: 16px
 ### 5. Services (3 Accordion Sections)
 
 #### Desktop: Horizontal Accordions
+
 - Height: 600px
 - Default: Перша картка 50% width, решта розподілені рівномірно
 - Hover: Active картка 50%, інші стискаються
 - Spring animation: `stiffness: 100, damping: 20, mass: 1.2`
 
 **TRAVEL & STAY** (5 cards):
+
 1. Premium Hotels
 2. Yacht Charters
 3. Private Aviation
@@ -126,21 +131,25 @@ lg: 16px
 5. Exclusive Villa Rentals
 
 **ACCESS & EXPERIENCES** (3 cards):
+
 1. Restaurants & Nightlife
 2. Exclusive Event Access
 3. Event Planning & Private Celebrations
 
 **CONCIERGE SERVICES** (3 cards):
+
 1. Health, Well-Being & Beauty
 2. Gift Procurement & Personal Shopping
 3. Floral Gestures
 
 #### Mobile: Vertical Accordions
+
 - Stacked категорії з expand/collapse
 - Items з'являються з stagger effect (50ms delay)
 - Height: auto з smooth transition
 
 ### 6. Top Destinations
+
 - Grid layout: 4 columns (desktop) / 2 columns (mobile)
 - 14 destinations з hover zoom effect
 - Card height: 400px (desktop) / 300px (mobile)
@@ -149,21 +158,25 @@ lg: 16px
 Bodrum, Cannes, Courchevel, Dubai, Ibiza, London, Mallorca, Marbella, Monaco, Mykonos, Paris, Porto Cervo, Saint Tropez, Tulum
 
 ### 7. Exclusive Event Access
+
 - 3-column grid (desktop) / Accordion (mobile)
 - Categories: Sporting, Entertainment, Red Carpet
 - List items з stagger fade-in
 
 ### 8. Trusted Partners
+
 - Logo grid (6 columns desktop)
 - Grayscale → Color на hover
 - Logos з Berkeley Travel partners
 
 ### 9. Contact Section
+
 - Split layout: Form + Contact Info
 - WhatsApp/Telegram buttons як primary CTAs
 - Form validation з React Hook Form + Zod
 
 ### 10. Footer
+
 - 3-column grid
 - Logo + Quick Links + Social/Legal
 - Copyright bar
@@ -178,20 +191,20 @@ Bodrum, Cannes, Courchevel, Dubai, Ibiza, London, Mallorca, Marbella, Monaco, My
 // Hero text animation
 const heroTextVariants = {
   hidden: { opacity: 0, y: 30 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     y: 0,
-    transition: { duration: 0.8, ease: "easeOut" }
-  }
-}
+    transition: { duration: 0.8, ease: "easeOut" },
+  },
+};
 
 // Accordion spring physics
 const accordionSpring = {
   type: "spring",
   stiffness: 100,
   damping: 20,
-  mass: 1.2
-}
+  mass: 1.2,
+};
 
 // Stagger children (mobile accordion items)
 const staggerContainer = {
@@ -199,21 +212,21 @@ const staggerContainer = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.05
-    }
-  }
-}
+      staggerChildren: 0.05,
+    },
+  },
+};
 
 const staggerItem = {
   hidden: { opacity: 0, x: -20 },
-  visible: { opacity: 1, x: 0 }
-}
+  visible: { opacity: 1, x: 0 },
+};
 
 // Image hover scale
 const imageHover = {
   scale: 1.1,
-  transition: { duration: 0.8 }
-}
+  transition: { duration: 0.8 },
+};
 ```
 
 ### CSS Transitions
@@ -242,14 +255,18 @@ const imageHover = {
 
 ```css
 /* Mobile First */
-@media (min-width: 768px) { /* Tablet */ }
-@media (min-width: 1024px) { /* Desktop */ }
-@media (min-width: 1440px) { /* Large Desktop */ }
+@media (min-width: 768px) {
+  /* Tablet */
+}
+@media (min-width: 1024px) {
+  /* Desktop */
+}
+@media (min-width: 1440px) {
+  /* Large Desktop */
+}
 ```
 
 ---
-
-
 
 ---
 
@@ -288,7 +305,7 @@ TELEGRAM_CHAT_ID=your_chat_id
 # Email (optional)
 SMTP_HOST=smtp.gmail.com
 SMTP_PORT=587
-SMTP_USER=office@berkhamtravel.com
+SMTP_USER=office@www.berkhamtrvl.com
 SMTP_PASS=your_app_password
 
 # Analytics
@@ -302,16 +319,16 @@ NEXT_PUBLIC_META_PIXEL_ID=XXXXXXXXXX
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    formats: ['image/webp'],
+    formats: ["image/webp"],
     deviceSizes: [640, 768, 1024, 1280, 1536],
     imageSizes: [16, 32, 48, 64, 96],
   },
   compiler: {
-    removeConsole: process.env.NODE_ENV === 'production',
+    removeConsole: process.env.NODE_ENV === "production",
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
 ```
 
 ---
@@ -351,11 +368,11 @@ vercel --prod
 
 ### Custom Domain Setup
 
-1. Domain: `berkhamtravel.com`
+1. Domain: `www.berkhamtrvl.com`
 2. DNS: Point to Vercel
 3. SSL: Auto-configured by Vercel
 4. Email: Google Workspace ($6/month)
-   - Setup: `office@berkhamtravel.com`
+   - Setup: `office@www.berkhamtrvl.com`
    - MX Records через Google Workspace console
 
 ---
@@ -374,7 +391,7 @@ SMTP Settings:
 Host: smtp.gmail.com
 Port: 587
 Security: TLS
-Username: office@berkhamtravel.com
+Username: office@www.berkhamtrvl.com
 Password: [App-specific password]
 ```
 
@@ -423,14 +440,14 @@ ${data.message}
   const response = await fetch(
     `https://api.telegram.org/bot${botToken}/sendMessage`,
     {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         chat_id: chatId,
         text: text,
-        parse_mode: 'HTML',
+        parse_mode: "HTML",
       }),
-    }
+    },
   );
 
   return response.ok;
@@ -444,10 +461,12 @@ ${data.message}
 ### Images Needed
 
 **Hero Section:**
+
 - 1 high-res video або image (1920x1080, <5MB)
 - Luxury jet interior або yacht deck
 
 **Services Accordion (11 images):**
+
 - Premium Hotels: Luxury hotel lobby (1200x800)
 - Yacht Charters: Yacht deck/sea view (1200x800)
 - Private Aviation: Jet interior/exterior (1200x800)
@@ -461,10 +480,12 @@ ${data.message}
 - Floral: Flowers close-up (1200x800)
 
 **Destinations (14 images):**
+
 - Square format 800x800
 - Iconic landmarks для кожної локації
 
 **Partners:**
+
 - Leading Hotels of The World logo (SVG)
 - Інші partner logos з Berkeley Travel (SVG preferred)
 
@@ -479,6 +500,7 @@ ${data.message}
 ## ✅ Pre-Launch Checklist
 
 ### Technical
+
 - [ ] All images optimized (<200KB)
 - [ ] Fonts loaded correctly
 - [ ] Mobile responsive tested (iPhone, Android)
@@ -491,6 +513,7 @@ ${data.message}
 - [ ] SEO meta tags configured
 
 ### Content
+
 - [ ] All copy proofread
 - [ ] Partner logos uploaded
 - [ ] Leading Hotels badge visible
@@ -499,6 +522,7 @@ ${data.message}
 - [ ] Instagram link active
 
 ### Legal
+
 - [ ] Privacy Policy page
 - [ ] Terms of Service page
 - [ ] Cookie consent banner (if EU traffic)
@@ -509,15 +533,19 @@ ${data.message}
 ## 🐛 Known Issues & Solutions
 
 ### Issue: Accordion jerky animation
+
 **Solution:** Use `will-change: transform` на accordion cards
 
 ### Issue: CLS при image loading
+
 **Solution:** Завжди вказувати width/height для next/image
 
 ### Issue: Mobile menu не закривається
+
 **Solution:** Додати useEffect для body overflow-hidden
 
 ### Issue: Fonts не завантажуються
+
 **Solution:** Preload в layout.tsx через next/font
 
 ---
@@ -526,7 +554,7 @@ ${data.message}
 
 **Client:** Berkham Private Travel & Concierge  
 **Developer:** L&H Studio  
-**Contact:** office@berkhamtravel.com  
+**Contact:** office@www.berkhamtrvl.com  
 **WhatsApp:** +33 679 105 270
 
 ---

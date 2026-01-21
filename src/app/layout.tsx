@@ -31,7 +31,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://berkhamtrvl.com'),
+  metadataBase: new URL('https://www.berkhamtrvl.com'),
   title: {
     default: "Berkham Private Travel & Concierge | Luxury Travel Services",
     template: "%s | Berkham Travel"
@@ -80,7 +80,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://berkhamtrvl.com',
+    url: 'https://www.berkhamtrvl.com',
     title: 'Berkham Private Travel & Concierge | Luxury Travel Services',
     description:
       'Bespoke luxury travel experiences, private aviation, yacht charters, and exclusive concierge services. Where travel meets elegance.',
@@ -126,12 +126,12 @@ const structuredData = {
   "@graph": [
     {
       "@type": "Organization",
-      "@id": "https://berkhamtrvl.com/#organization",
+      "@id": "https://www.berkhamtrvl.com/#organization",
       "name": "Berkham Private Travel & Concierge",
-      "url": "https://berkhamtrvl.com",
+      "url": "https://www.berkhamtrvl.com",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://berkhamtrvl.com/logo/logo.png",
+        "url": "https://www.berkhamtrvl.com/logo/logo.png",
         "width": 300,
         "height": 80
       },
@@ -150,12 +150,12 @@ const structuredData = {
     },
     {
       "@type": "TravelAgency",
-      "@id": "https://berkhamtrvl.com/#business",
+      "@id": "https://www.berkhamtrvl.com/#business",
       "name": "Berkham Private Travel & Concierge",
       "description": "Bespoke luxury travel experiences, private aviation, yacht charters, and exclusive concierge services for discerning clients worldwide.",
-      "url": "https://berkhamtrvl.com",
+      "url": "https://www.berkhamtrvl.com",
       "telephone": "+33679105270",
-      "email": "info@berkhamtrvl.com",
+      "email": "info@www.berkhamtrvl.com",
       "priceRange": "$$$$$",
       "address": {
         "@type": "PostalAddress",
@@ -211,11 +211,11 @@ const structuredData = {
     },
     {
       "@type": "WebSite",
-      "@id": "https://berkhamtrvl.com/#website",
-      "url": "https://berkhamtrvl.com",
+      "@id": "https://www.berkhamtrvl.com/#website",
+      "url": "https://www.berkhamtrvl.com",
       "name": "Berkham Private Travel & Concierge",
       "publisher": {
-        "@id": "https://berkhamtrvl.com/#organization"
+        "@id": "https://www.berkhamtrvl.com/#organization"
       }
     }
   ]
@@ -235,7 +235,7 @@ export default function RootLayout({
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
-       
+
       </head>
       <body className={`${playfairDisplay.variable} ${montserrat.variable} ${cormorant.variable}`}>
         {children}
