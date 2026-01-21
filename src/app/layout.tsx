@@ -8,18 +8,24 @@ const playfairDisplay = Playfair_Display({
   variable: "--font-playfairDisplay",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  display: 'swap',
+  preload: true,
 });
 
 const montserrat = Raleway({
   variable: "--font-montserrat",
   subsets: ["latin"],
+  display: 'swap',
+  preload: true,
 });
 
 const cormorant = Cormorant({
   variable: "--font-cormorant",
   subsets: ["latin"],
   weight: ["300", "400"],
-  style: ["italic"]
+  style: ["italic"],
+  display: 'swap',
+  preload: true,
 });
 export const viewport: Viewport = {
   width: 'device-width',
@@ -231,6 +237,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Preload critical hero image for LCP */}
+        <link
+          rel="preload"
+          href="/premium_berkhamtravel_plane_and_car.jpg"
+          as="image"
+          fetchPriority="high"
+        />
         <Script
           id="structured-data"
           type="application/ld+json"
@@ -244,8 +257,7 @@ export default function RootLayout({
           y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "v4wxwqa8n0");`}
         </Script>
-        <GoogleAnalytics gaId="G-1TL6LPN01T" />
-
+        <GoogleAnalytics gaId="G-XQVFHS0DHX" />
       </head>
       <body className={`${playfairDisplay.variable} ${montserrat.variable} ${cormorant.variable}`}>
         {children}

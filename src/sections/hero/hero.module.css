@@ -23,11 +23,22 @@
   height: 100%;
   object-fit: cover;
   z-index: 1;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.video.visible {
+  opacity: 1;
 }
 
 .fallbackImage {
   object-fit: cover;
   z-index: 0;
+  transition: opacity 0.8s ease;
+}
+
+.fallbackImage.hidden {
+  opacity: 0;
 }
 
 /* Gradient Overlay */

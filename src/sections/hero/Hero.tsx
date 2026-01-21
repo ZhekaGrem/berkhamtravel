@@ -1,39 +1,63 @@
 'use client';
 
+import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import styles from './hero.module.css';
 
 export function Hero() {
-  const scrollToSection = () => {
-    const aboutSection = document.getElementById('about');
-    aboutSection?.scrollIntoView({ behavior: 'smooth' });
-  };
+  const [videoLoaded, setVideoLoaded] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const handleCanPlay = () => {
+      setVideoLoaded(true);
+    };
+
+    video.addEventListener('canplaythrough', handleCanPlay);
+
+    // Start loading video after initial paint
+    const timer = setTimeout(() => {
+      video.load();
+    }, 100);
+
+    return () => {
+      video.removeEventListener('canplaythrough', handleCanPlay);
+      clearTimeout(timer);
+    };
+  }, []);
 
   return (
     <section className={styles.hero}>
       {/* Video/Image Background */}
       <div className={styles.mediaWrapper}>
-        <video
-          className={styles.video}
-          autoPlay
-          muted
-          loop
-          playsInline
-          poster="/premium_berkhamtravel_plane_and_car.jpg"
-        >
-          {/* Video source will be added later */}
-          <source src="/video/private_jet.mp4" type="video/mp4" />
-        </video>
-        {/* Fallback image */}
+        {/* Hero image - always visible first for LCP */}
         <Image
           src="/premium_berkhamtravel_plane_and_car.jpg"
           alt="Luxury travel"
           fill
           priority
-          quality={90}
-          className={styles.fallbackImage}
+          fetchPriority="high"
+          quality={85}
+          sizes="100vw"
+          className={`${styles.fallbackImage} ${videoLoaded ? styles.hidden : ''}`}
         />
+        {/* Video loads after image */}
+        <video
+          ref={videoRef}
+          className={`${styles.video} ${videoLoaded ? styles.visible : ''}`}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="none"
+          poster="/premium_berkhamtravel_plane_and_car.jpg"
+        >
+          <source src="/video/private_jet.mp4" type="video/mp4" />
+        </video>
       </div>
 
       {/* Gradient Overlay */}
