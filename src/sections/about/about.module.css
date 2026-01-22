@@ -92,7 +92,7 @@ hyphens: auto;
   border-radius: 2px;
   margin-bottom: var(--spacing-2xl);
   background: linear-gradient(180deg, rgba(255,255,255,0.02) 0%, transparent 100%);
-  transition: border-color 0.3s ease;
+  transition: border-color 0.5s ease;
 }
 
 .trustSignal:hover {
@@ -137,16 +137,15 @@ hyphens: auto;
   letter-spacing: 0.2em;
   color: var(--color-text-primary);
   padding-bottom: 4px;
-  transition: all 0.3s ease;
+  transition: all 0.5s ease;
 }
 
 .cta:hover{
   color: var(--color-text-accent);
-  fill: var(--color-text-accent);
   padding-bottom: 8px; /* Ефект "підняття" */
   letter-spacing: 0.25em;
   .ctaBox svg{
-  fill: var(--color-text-accent);
+  stroke: var(--color-text-accent);
  }
 }
  
