@@ -1,17 +1,18 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import { Antic_Didone, Raleway, Cormorant } from "next/font/google";
+import { Italianno, Montserrat, Cormorant } from "next/font/google";
 import Script from "next/script";
 import { GoogleAnalytics } from '@next/third-parties/google';
 
-const playfairDisplay = Antic_Didone({
+const playfairDisplay = Italianno({
   variable: "--font-playfairDisplay",
   weight: "400"
 });
 
-const montserrat = Raleway({
+const montserrat = Montserrat({
   variable: "--font-montserrat",
   subsets: ["latin"],
+  weight: "300",
   display: 'swap',
   preload: true,
 });
@@ -42,25 +43,75 @@ export const metadata: Metadata = {
   },
   description: "Bespoke luxury travel experiences, private aviation, yacht charters, and exclusive concierge services. Where travel meets elegance.",
   keywords: [
-    "luxury travel",
-    "private jet charter",
-    "yacht charter",
-    "concierge services",
-    "VIP travel",
-    "exclusive experiences",
-    "luxury hotels",
-    "private aviation",
-    "premium transfers",
-    "F1 tickets",
-    "fashion week access",
-    "Monaco Grand Prix",
-    "Coachella VIP",
-    "exclusive events",
-    "lifestyle management"
+    "premium hotel accommodation",
+"yacht charters",
+"aviation",
+"villa rental",
+"transportation",
+"exclusive event access",
+
+"Berkham Private Travel & Concierge",
+"private travel concierge",
+"bespoke",
+"personal travel planning",
+"tailored travel experiences",
+"custom travel itineraries",
+"private travel management",
+"international travel concierge",
+"executive travel concierge",
+
+"private clients travel services",
+"high net worth travel services",
+"confidential travel planning",
+"discreet travel services",
+"personalised travel solutions",
+
+"yacht charter concierge",
+"private jet charter concierge",
+"private villa rentals",
+"exclusive event access",
+"elite hospitality services",
+
+"UK travel concierge",
+"Monaco travel concierge",
+"French Riviera concierge",
+"European travel concierge",
+"international concierge services",
+"London Dubai Swiss",
+
+"personal buyer assistant",
+"private buyer services",
+"luxury shopping concierge",
+"fashion buyer assistant",
+
+"villas",
+"luxury villa rentals",
+"private villa rentals",
+"exclusive villa rentals",
+"high end villa rentals",
+"private villas worldwide",
+
+"yachts",
+"luxury yacht charter",
+"private yacht charter",
+"exclusive yacht charters",
+"superyacht charter",
+"yacht charter concierge",
+"cars",
+"luxury car rental",
+"exclusive car rental",
+"luxury car hire with driver",
+"chauffeur driven luxury cars",
+"supercar rental",
+"aviation",
+"private jet charter",
+"luxury aviation services",
+"helicopter charter services"
+
   ],
   icons: {
     icon: [
-      { url: 'https://www.berkhamtrvl.com/favicon.ico',  sizes: '48x48' },
+      { url: 'https://www.berkhamtrvl.com/favicon.ico', sizes: '48x48' },
       { url: 'https://www.berkhamtrvl.com/icon0.svg', type: 'image/svg+xml' },
       { url: 'https://www.berkhamtrvl.com/icon1.png', type: 'image/png', sizes: '96x96' }
     ],
@@ -70,7 +121,7 @@ export const metadata: Metadata = {
       { url: 'https://www.berkhamtrvl.com/apple-icon.png', sizes: '180x180', type: 'image/png' }
     ],
   },
- 
+
   authors: [{ name: "Berkham Travel" }],
   creator: "Berkham Private Travel & Concierge",
   publisher: "Berkham Private Travel & Concierge",
@@ -86,13 +137,13 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://www.berkhamtrvl.com',
-    title: 'Berkham Private Travel & Concierge | Luxury Travel Services',
+    title: 'Berkham Private Travel & Concierge',
     description:
-      'Bespoke luxury travel experiences, private aviation, yacht charters, and exclusive concierge services. Where travel meets elegance.',
+      'Berkham Team creates journeys for those who value discretion, precision and personal rhythm, with a focus on clarity, structure and intelligent planning rather than excess. Each journey is built around your priorities, with close attention to privacy, timing and detail, and delivered through a limited circle of trusted partners and destinations chosen for their consistency and standards. Every element is coordinated quietly and efficiently, allowing travel to unfold as it should be — considered, personal and seamless. premium hotel accommodation | yacht charters | aviation | villa rental | transportation | exclusive event access',
     siteName: 'Berkham Private Travel',
     images: [
       {
-        url: '/logo/black_logo.jpg',
+        url: '/logo/seo.png',
         width: 1200,
         height: 630,
         alt: 'Berkham Private Travel & Concierge - Luxury Travel Services',
@@ -103,8 +154,8 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Berkham Private Travel & Concierge',
     description:
-      "Bespoke luxury travel experiences, private aviation, yacht charters, and exclusive concierge services.",
-    images: ['/logo/black_logo.jpg'],
+      "Berkham Team creates journeys for those who value discretion, precision and personal rhythm, with a focus on clarity, structure and intelligent planning rather than excess. Each journey is built around your priorities, with close attention to privacy, timing and detail, and delivered through a limited circle of trusted partners and destinations chosen for their consistency and standards. Every element is coordinated quietly and efficiently, allowing travel to unfold as it should be — considered, personal and seamless. premium hotel accommodation | yacht charters | aviation | villa rental | transportation | exclusive event access",
+    images: ['/logo/seo.png'],
     creator: '@berkhamtravel',
   },
   robots: {

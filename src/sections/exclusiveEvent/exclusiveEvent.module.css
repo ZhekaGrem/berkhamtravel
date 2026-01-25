@@ -31,7 +31,7 @@
 
 .title {
   font-family: var(--font-heading);
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(2rem, 4vw, 4rem);
   font-weight: 400;
   background: var(--color-text-accent-gradient-silver);
   -webkit-background-clip: text;
@@ -122,10 +122,10 @@
   background: linear-gradient(
     to right,
     #bf953f,
-    #fcf6ba, /* Світлий блік */
-    #b38728,
-    #fbf5b7, /* Ще один блік */
-    #aa771c
+    #fcf6ba,
+    /* Світлий блік */ #b38728,
+    #fbf5b7,
+    /* Ще один блік */ #aa771c
   );
   background-size: 200% auto;
 

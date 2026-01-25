@@ -8,9 +8,9 @@ import styles from './exclusiveEvent.module.css';
 
 // Background images for each category (replace with your own images)
 const categoryBackgrounds: Record<string, string> = {
-  sporting: '/exclusiveEvent/sport.jpeg',
-  entertainment: '/exclusiveEvent/2.jpeg',
-  redCarpet: '/exclusiveEvent/3.jpeg',
+  sporting: '/exclusiveEvent/sport.jpg',
+  entertainment: '/exclusiveEvent/2.jpg',
+  redCarpet: '/exclusiveEvent/3.jpg',
 };
 
 export function ExclusiveEvent() {
@@ -78,7 +78,7 @@ export function ExclusiveEvent() {
               {/* Background Image */}
               <div className={styles.columnBackground}>
                 <OptimizedImage
-                  src={categoryBackgrounds[category.id] || '/exclusiveEvent/3.jpeg'}
+                  src={categoryBackgrounds[category.id] || '/exclusiveEvent/3.jpg'}
                   alt=""
                   fill
                   quality={75}
@@ -118,7 +118,7 @@ export function ExclusiveEvent() {
               {/* Background Image */}
               <div className={styles.accordionBackground}>
                 <OptimizedImage
-                  src={categoryBackgrounds[category.id] || '/exclusiveEvent/3.jpeg' }
+                  src={categoryBackgrounds[category.id] || '/exclusiveEvent/3.jpg' }
                   alt=""
                   fill
                   quality={60}

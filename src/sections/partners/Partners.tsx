@@ -6,10 +6,13 @@ import { partners } from '@/data';
 import styles from './partners.module.css';
 
 export function Partners() {
+  // Duplicate partners array for seamless infinite loop
+  const duplicatedPartners = [...partners, ...partners];
+
   return (
-    <section className={styles.partners}>
+    <section className={styles.partners} id='partners'>
       <div className={styles.container}>
-        <div className={styles.header}>
+        {/* <div className={styles.header}>
           <motion.span
             className={styles.tagline}
             initial={{ opacity: 0, y: 20 }}
@@ -17,7 +20,7 @@ export function Partners() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            Working With The Best
+           
           </motion.span>
           <motion.h2
             className={styles.title}
@@ -26,36 +29,36 @@ export function Partners() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            Trusted <span className={styles.titleAccent}>Partners</span>
+             Working With  <span className={styles.titleAccent}>The Best</span>
           </motion.h2>
-        </div>
+        </div> */}
 
         <motion.div
-          className={styles.grid}
+          className={styles.carouselWrapper}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 1.6, delay: 0.5 }}
         >
-          {partners.map((partner, index) => (
-            <motion.div
-              key={partner.id}
-              className={styles.logoWrapper}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.05 }}
-            >
-              <OptimizedImage
-                src={partner.logo}
-                alt={partner.name}
-                width={400}
-                height={170}
-                preloadMargin="400px"
-                className={styles.logo}
-              />
-            </motion.div>
-          ))}
+          <div className={styles.carousel}>
+            <div className={styles.carouselTrack}>
+              {duplicatedPartners.map((partner, index) => (
+                <div
+                  key={`${partner.id}-${index}`}
+                  className={styles.logoWrapper}
+                >
+                  <OptimizedImage
+                    src={partner.logo}
+                    alt={partner.name}
+                    width={400}
+                    height={370}
+                    preloadMargin="400px"
+                    className={styles.logo}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>

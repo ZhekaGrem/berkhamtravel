@@ -12,13 +12,13 @@
 }
 
 .tagline {
- display: block;
+  display: block;
   font-family: var(--font-body);
   font-size: var(--font-size-caption);
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-    background: var(--color-text-accent-gradient);
+  background: var(--color-text-accent-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -27,16 +27,16 @@
 
 .title {
   font-family: var(--font-heading);
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(2rem, 4vw, 4rem);
   font-weight: 400;
-   background: var(--color-text-accent-gradient-silver);
+  background: var(--color-text-accent-gradient-silver);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .titleAccent {
-   background: var(--color-text-accent-gradient);
+  background: var(--color-text-accent-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -75,7 +75,7 @@
 }
 
 .categoryToggle {
-   background: var(--color-text-accent-gradient);
+  background: var(--color-text-accent-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -130,15 +130,13 @@
   z-index: 2;
 }
 
-
 .cardTitle {
   font-family: var(--font-heading);
-  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  font-size: clamp(1.25rem, 2vw, 2.5rem);
   font-weight: 600;
   color: var(--color-text-primary);
   margin: 0 0 var(--spacing-sm);
   white-space: nowrap;
-  
 }
 
 .cardActive .cardTitle {
@@ -152,10 +150,10 @@
   line-height: 1.6;
   margin: 0;
   max-width: 400px;
-text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9);
-overflow-wrap: break-word;
-word-break: normal;
-hyphens: auto;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9);
+  overflow-wrap: break-word;
+  word-break: normal;
+  hyphens: auto;
 }
 
 /* Mobile Accordion */

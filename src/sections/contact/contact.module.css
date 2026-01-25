@@ -29,7 +29,7 @@
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-    background: var(--color-text-accent-gradient);
+  background: var(--color-text-accent-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -38,7 +38,7 @@
 
 .title {
   font-family: var(--font-heading);
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(2rem, 4vw, 4rem);
   font-weight: 400;
   background: var(--color-text-accent-gradient-silver);
   -webkit-background-clip: text;
@@ -48,7 +48,7 @@
 
 .titleAccent {
   background: var(--color-text-accent-gradient);
- -webkit-background-clip: text;
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
@@ -92,7 +92,7 @@
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-   background: var(--color-text-accent-gradient);
+  background: var(--color-text-accent-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -107,7 +107,7 @@
 }
 
 a.contactValue:hover {
-   background: var(--color-text-accent-gradient);
+  background: var(--color-text-accent-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -167,7 +167,7 @@ a.contactValue:hover {
 }
 
 .socialLink:hover {
-    background: var(--color-text-accent-gradient);
+  background: var(--color-text-accent-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -333,6 +333,7 @@ a.contactValue:hover {
 }
 
 /* Переконайтеся, що transition додано до базового класу input для плавної зміни кольору */
-.input, .textarea {
+.input,
+.textarea {
   transition: border-color 0.2s ease;
 }

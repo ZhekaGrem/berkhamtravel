@@ -7,7 +7,25 @@ import styles from './hero.module.css';
 
 export function Hero() {
   const [videoLoaded, setVideoLoaded] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      const newIsMobile = window.innerWidth < 768;
+      setIsMobile(prev => {
+        if (prev !== newIsMobile) {
+          setVideoLoaded(false);
+        }
+        return newIsMobile;
+      });
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -19,7 +37,6 @@ export function Hero() {
 
     video.addEventListener('canplaythrough', handleCanPlay);
 
-    // Start loading video after initial paint
     const timer = setTimeout(() => {
       video.load();
     }, 100);
@@ -28,7 +45,7 @@ export function Hero() {
       video.removeEventListener('canplaythrough', handleCanPlay);
       clearTimeout(timer);
     };
-  }, []);
+  }, [isMobile]);
 
   return (
     <section className={styles.hero}>
@@ -47,6 +64,7 @@ export function Hero() {
         />
         {/* Video loads after image */}
         <video
+          key={isMobile ? 'mobile' : 'desktop'}
           ref={videoRef}
           className={`${styles.video} ${videoLoaded ? styles.visible : ''}`}
           autoPlay
@@ -56,7 +74,10 @@ export function Hero() {
           preload="none"
           poster="/premium_berkhamtravel_plane_and_car.jpg"
         >
-          <source src="/video/private_jet.mp4" type="video/mp4" />
+          <source
+            src={isMobile ? '/video/phone.mp4' : '/video/private_jet.mp4'}
+            type="video/mp4"
+          />
         </video>
       </div>
 
@@ -93,10 +114,10 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          Bespoke journeys crafted exclusively around your wishes
+          Where Travel Meets Elegance 
         </motion.p>
 
-        <motion.div
+        {/* <motion.div
           className={styles.cta}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -110,7 +131,7 @@ export function Hero() {
               </div>
             </div>
           </a>
-        </motion.div>
+        </motion.div> */}
       </div>
 
 

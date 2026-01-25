@@ -16,13 +16,13 @@
 }
 
 .tagline {
- display: block;
+  display: block;
   font-family: var(--font-body);
   font-size: var(--font-size-caption);
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-    background: var(--color-text-accent-gradient);
+  background: var(--color-text-accent-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -31,13 +31,12 @@
 
 .title {
   font-family: var(--font-heading);
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(2rem, 4vw, 4rem);
   font-weight: 400;
-   background: var(--color-text-accent-gradient-silver);
+  background: var(--color-text-accent-gradient-silver);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  
 }
 
 .titleAccent {
@@ -52,7 +51,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center; /* Центрує "сиріт" в останньому рядку */
-  gap: var(--spacing-sm);  /* Використовуємо нативний gap */
+  gap: var(--spacing-sm); /* Використовуємо нативний gap */
 }
 
 /* Card */
@@ -63,7 +62,7 @@
      Формула: (100% мінус 1 відступ) поділити на 2 */
   flex: 0 0 calc((100% - var(--spacing-sm)) / 2);
   max-width: calc((100% - var(--spacing-sm)) / 2);
-  
+
   aspect-ratio: 1;
   overflow: hidden;
   cursor: pointer;
@@ -72,9 +71,7 @@
 .cardImageWrapper {
   position: absolute;
   inset: 0;
-
 }
-
 
 .placeholder {
   position: absolute;
@@ -157,7 +154,6 @@
   }
 
   .card {
-
     /* Планшет: 3 колонки.
        Формула: (100% мінус 2 відступи) поділити на 3 */
     flex: 0 0 calc((100% - (var(--spacing-md) * 2)) / 3);
@@ -167,7 +163,7 @@
   .cardContent {
     padding: var(--spacing-lg);
     bottom: 20px;
-  left: 20px;
+    left: 20px;
   }
 
   .cardTitle {
@@ -183,7 +179,7 @@
        Формула: (100% мінус 3 відступи) поділити на 4 */
     flex: 0 0 calc((100% - (var(--spacing-md) * 3)) / 4);
     max-width: calc((100% - (var(--spacing-md) * 3)) / 4);
-    
+
     aspect-ratio: 3/4;
   }
 }

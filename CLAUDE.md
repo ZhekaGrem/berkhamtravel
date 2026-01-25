@@ -5,6 +5,7 @@
 You are building **Berkham Private Travel & Concierge** - a premium dark luxury landing page for high-end travel concierge services.
 
 **Tech Stack:**
+
 - Next.js 14 (App Router)
 - TypeScript
 - CSS Modules (NO Tailwind - pure CSS only)
@@ -16,7 +17,9 @@ You are building **Berkham Private Travel & Concierge** - a premium dark luxury 
 ## Critical Design Principles
 
 ### 1. Dark Luxury Aesthetic
+
 This is NOT a standard corporate site. Every pixel must breathe elegance:
+
 - **Slow, smooth animations** (rushed = cheap)
 - **Generous white space** (cramped = unprofessional)
 - **Perfect typography hierarchy**
@@ -25,28 +28,25 @@ This is NOT a standard corporate site. Every pixel must breathe elegance:
 ### 2. Color System (STRICT)
 
 ```css
---color-primary-bg: #0A0A0A; /* Основний фон */
---color-secondary-bg: #1A1A1A;/* Другорядний фон */
---color-text-primary: #F5F5F5;/* Основний текст */
---color-text-accent: #D4AF37; /* Акцентний текст (gold) */
---color-text-secondary: #8A8A8A; /* Стандартний текст (сірий) */
---color-border: rgba(212, 175, 55, 0.15);/* Gold border */
+--color-primary-bg: #0a0a0a; /* Основний фон */
+--color-secondary-bg: #1a1a1a; /* Другорядний фон */
+--color-text-primary: #f5f5f5; /* Основний текст */
+--color-text-accent: #d4af37; /* Акцентний текст (gold) */
+--color-text-secondary: #8a8a8a; /* Стандартний текст (сірий) */
+--color-border: rgba(212, 175, 55, 0.15); /* Gold border */
 --color-overlay: rgba(10, 10, 10, 0.92);
---color-highlight: #2A2A2A; 
- 
+--color-highlight: #2a2a2a;
 ```
 
 **DO NOT deviate from these colors.** No #333, no #999, no random grays.
 
 ### 3. Typography
 
-
-
 **Font Loading:**
 Use `next/font` to preload fonts properly:
 
 ```typescript
-import { Bodoni_Moda, Raleway , Cormorant } from "next/font/google";
+import { Bodoni_Moda, Raleway, Cormorant } from "next/font/google";
 
 const bodoni = Bodoni_Moda({
   variable: "--font-bodoni",
@@ -54,7 +54,7 @@ const bodoni = Bodoni_Moda({
   weight: ["400", "500", "600", "700"],
 });
 
-const montserrat = Raleway ({
+const montserrat = Raleway({
   variable: "--font-montserrat",
   subsets: ["latin"],
 });
@@ -63,7 +63,7 @@ const cormorant = Cormorant({
   variable: "--font-cormorant",
   subsets: ["latin"],
   weight: ["300", "400"],
-  style: ["italic"]
+  style: ["italic"],
 });
 ```
 
@@ -107,8 +107,9 @@ ComponentName/
 ```
 
 **Import in component:**
+
 ```tsx
-import styles from './Component.module.css';
+import styles from "./Component.module.css";
 
 export default function Component() {
   return <div className={styles.container}>...</div>;
@@ -142,6 +143,7 @@ const luxurySpring = {
 ### Accordion Animation Rules
 
 **Desktop Horizontal Accordion:**
+
 ```typescript
 <motion.div
   className={styles.accordionCard}
@@ -159,7 +161,7 @@ const luxurySpring = {
     animate={{ scale: isActive ? 1.1 : 1 }}
     transition={{ duration: 0.8 }}
   />
-  
+
   {/* Text content - only show when active */}
   <AnimatePresence>
     {isActive && (
@@ -177,6 +179,7 @@ const luxurySpring = {
 ```
 
 **Mobile Vertical Accordion:**
+
 ```typescript
 <AnimatePresence>
   {isOpen && (
@@ -229,24 +232,25 @@ export interface ServiceItem {
   title: string;
   description: string; // Max 150 chars
   image: string;
-  category: 'travel' | 'access' | 'concierge';
+  category: "travel" | "access" | "concierge";
 }
 
 export const servicesData: ServiceItem[] = [
   {
-    id: 'premium-hotels',
-    title: 'Premium Hotels',
-    description: 'The right hotel is about more than availability. We arrange preferred conditions and thoughtful details.',
-    image: '/images/services/hotels.webp',
-    category: 'travel'
+    id: "premium-hotels",
+    title: "Premium Hotels",
+    description:
+      "The right hotel is about more than availability. We arrange preferred conditions and thoughtful details.",
+    image: "/images/services/hotels.webp",
+    category: "travel",
   },
   // ... rest
 ];
 
 export const servicesByCategory = {
-  travel: servicesData.filter(s => s.category === 'travel'),
-  access: servicesData.filter(s => s.category === 'access'),
-  concierge: servicesData.filter(s => s.category === 'concierge'),
+  travel: servicesData.filter((s) => s.category === "travel"),
+  access: servicesData.filter((s) => s.category === "access"),
+  concierge: servicesData.filter((s) => s.category === "concierge"),
 };
 ```
 
@@ -255,8 +259,8 @@ export const servicesByCategory = {
 ```typescript
 // data/destinations.ts
 export const destinations = [
-  { name: 'Bodrum', image: '/images/destinations/bodrum.webp' },
-  { name: 'Cannes', image: '/images/destinations/cannes.webp' },
+  { name: "Bodrum", image: "/images/destinations/bodrum.webp" },
+  { name: "Cannes", image: "/images/destinations/cannes.webp" },
   // ... 14 total
 ];
 ```
@@ -267,17 +271,29 @@ export const destinations = [
 // data/events.ts
 export const eventCategories = {
   sporting: [
-    'F1', 'Premier League', 'Champions League', 'Tennis', 
-    'Golf', 'UFC', 'NBA', 'Olympics'
+    "F1",
+    "Premier League",
+    "Champions League",
+    "Tennis",
+    "Golf",
+    "UFC",
+    "NBA",
+    "Olympics",
   ],
   entertainment: [
-    'Coachella', 'Burning Man', 'Glastonbury', 
-    'Tomorrowland 2025', 'Rolling Loud'
+    "Coachella",
+    "Burning Man",
+    "Glastonbury",
+    "Tomorrowland 2025",
+    "Rolling Loud",
   ],
   redCarpet: [
-    'Met Gala', 'Oscars', 'Fashion Week', 
-    'Film Festivals', 'Film Premieres'
-  ]
+    "Met Gala",
+    "Oscars",
+    "Fashion Week",
+    "Film Festivals",
+    "Film Premieres",
+  ],
 };
 ```
 
@@ -289,13 +305,13 @@ export const eventCategories = {
 
 ```typescript
 // lib/validation.ts
-import { z } from 'zod';
+import { z } from "zod";
 
 export const contactSchema = z.object({
-  name: z.string().min(2, 'Name must be at least 2 characters'),
-  email: z.string().email('Invalid email address'),
-  phone: z.string().min(10, 'Phone must be at least 10 digits'),
-  message: z.string().min(10, 'Message must be at least 10 characters'),
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  email: z.string().email("Invalid email address"),
+  phone: z.string().min(10, "Phone must be at least 10 digits"),
+  message: z.string().min(10, "Message must be at least 10 characters"),
 });
 
 export type ContactFormData = z.infer<typeof contactSchema>;
@@ -354,8 +370,8 @@ export default function ContactForm() {
 
 ```typescript
 // app/api/contact/route.ts
-import { NextRequest, NextResponse } from 'next/server';
-import { contactSchema } from '@/lib/validation';
+import { NextRequest, NextResponse } from "next/server";
+import { contactSchema } from "@/lib/validation";
 
 export async function POST(request: NextRequest) {
   try {
@@ -379,25 +395,25 @@ ${validated.message}
     const response = await fetch(
       `https://api.telegram.org/bot${botToken}/sendMessage`,
       {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           chat_id: chatId,
           text: message,
         }),
-      }
+      },
     );
 
     if (!response.ok) {
-      throw new Error('Telegram API error');
+      throw new Error("Telegram API error");
     }
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error('Contact form error:', error);
+    console.error("Contact form error:", error);
     return NextResponse.json(
-      { error: 'Failed to send message' },
-      { status: 500 }
+      { error: "Failed to send message" },
+      { status: 500 },
     );
   }
 }
@@ -471,9 +487,15 @@ import Image from 'next/image';
 
 ```css
 /* Use these exact breakpoints */
-@media (min-width: 768px) { /* Tablet */ }
-@media (min-width: 1024px) { /* Desktop */ }
-@media (min-width: 1440px) { /* Large Desktop */ }
+@media (min-width: 768px) {
+  /* Tablet */
+}
+@media (min-width: 1024px) {
+  /* Desktop */
+}
+@media (min-width: 1440px) {
+  /* Large Desktop */
+}
 ```
 
 ### Mobile-First Example
@@ -521,11 +543,11 @@ export default function RootLayout({ children }) {
 
 ```tsx
 // Lazy load heavy components
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
 
 const ServiceAccordion = dynamic(
-  () => import('@/components/Services/ServiceAccordion'),
-  { loading: () => <p>Loading...</p> }
+  () => import("@/components/Services/ServiceAccordion"),
+  { loading: () => <p>Loading...</p> },
 );
 ```
 
@@ -567,7 +589,9 @@ const ServiceAccordion = dynamic(
 ```css
 /* Specific transitions */
 .element {
-  transition: color 0.3s ease, transform 0.3s ease;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
 }
 
 /* Design system colors */
@@ -577,7 +601,7 @@ const ServiceAccordion = dynamic(
 
 /* Responsive sizes */
 .heading {
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(2rem, 4vw, 4rem);
 }
 ```
 
