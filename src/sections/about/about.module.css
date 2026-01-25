@@ -103,6 +103,9 @@ hyphens: auto;
   border-color: var(--color-text-accent); /* Золотіє при наведенні */
 }
 
+.trustIcon img{
+  filter: brightness(0) invert(0.7);
+}
 .trustIcon {
   color: var(--color-text-accent);
   margin-bottom: var(--spacing-sm);
@@ -115,6 +118,7 @@ hyphens: auto;
 }
 
 .trustLabel {
+  padding-bottom: var(--spacing-md);
   font-family: var(--font-body);
   font-size: 10px;
   text-transform: uppercase;

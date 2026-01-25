@@ -266,7 +266,7 @@
   flex: 1;
   text-align: left;
   font-family: var(--font-heading);
-  font-size: var(--font-size-body);
+  font-size: var(--font-size-h2);
   font-weight: 600;
   color: var(--color-text-primary);
 }

@@ -197,7 +197,7 @@
 
 .mobileCardTitle {
   font-family: var(--font-heading);
-  font-size: var(--font-size-body);
+  font-size: var(--font-size-h2);
   font-weight: 600;
   color: var(--color-text-primary);
   margin: 0 0 var(--spacing-xs);

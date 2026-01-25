@@ -41,22 +41,22 @@ Each journey is built around your priorities, with close attention to privacy, t
 
           {/* Trust Signal - Re-styled as a Badge */}
           <div className={styles.trustSignal}>
+              <div className={styles.trustContent}>
+               <span className={styles.trustLabel}>Proud Member of</span>
+            </div>
             <div className={styles.trustIcon}>
                {/* Leading Hotels Icon */}
                {/* <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                </svg> */}
                <Image 
-    src="/logo/logoFooter.png" 
+    src="/partners/logo_home_1.png" 
     alt="The Leading Hotels of the World" 
-    width={100} 
-    height={100}
+    width={200} 
+    height={200}
   />
             </div>
-            <div className={styles.trustContent}>
-               <span className={styles.trustLabel}>Proud Member of</span>
-               <span className={styles.trustTitle}>The Leading Hotels of The World</span>
-            </div>
+          
           </div>
 
           <a href="#services" className={styles.cta}>
