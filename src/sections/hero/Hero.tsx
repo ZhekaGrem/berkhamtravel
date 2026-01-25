@@ -75,7 +75,7 @@ export function Hero() {
           poster="/premium_berkhamtravel_plane_and_car.jpg"
         >
           <source
-            src={isMobile ? '/video/phone.mp4' : '/video/private_jet.mp4'}
+            src={isMobile ? '/video/phone.mp4' : '/video/phone.mp4'}
             type="video/mp4"
           />
         </video>
