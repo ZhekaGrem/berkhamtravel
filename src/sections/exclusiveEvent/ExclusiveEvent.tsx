@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import OptimizedImage from '@/components/optimizedImage';
 import { eventsData } from '@/data';
+import { TagTitle, Title, TitleAccent } from '@/components/title/Title';
 import styles from './exclusiveEvent.module.css';
 
 // Background images for each category (replace with your own images)
@@ -34,35 +35,19 @@ export function ExclusiveEvent() {
   return (
     <section id="events" className={styles.events}>
       <div className={styles.container}>
-        <div className={styles.header}>
-          <motion.span
-            className={styles.tagline}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            Access Matters
-          </motion.span>
-          <motion.h2
-            className={styles.title}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
-            Exclusive <span className={styles.titleAccent}>Event Access</span>
-          </motion.h2>
-          <motion.p
-            className={styles.subtitle}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
+        <motion.div
+          className={styles.header}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.8 }}
+        >
+          <TagTitle>Access Matters</TagTitle>
+          <Title>Exclusive <TitleAccent>Event Access</TitleAccent></Title>
+          <p className={styles.subtitle}>
             Priority access to the world&apos;s most sought-after events
-          </motion.p>
-        </div>
+          </p>
+        </motion.div>
 
         {/* Desktop 3-Column Layout */}
         <div className={styles.gridDesktop}>

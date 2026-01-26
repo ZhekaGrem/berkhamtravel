@@ -19,7 +19,7 @@
   flex-direction: column;
   align-items: center; /* Центруємо елементи всередині */
   text-align: center;  /* Центруємо текст */
-  max-width: 800px;    /* Ідеальна ширина для читання */
+  max-width: 1000px;    /* Ідеальна ширина для читання */
   width: 100%;
 }
 

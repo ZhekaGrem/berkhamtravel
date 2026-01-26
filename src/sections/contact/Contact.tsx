@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { TagTitle, Title, TitleAccent } from '@/components/title/Title';
 import styles from './contact.module.css';
 
 interface FormData {
@@ -126,26 +127,16 @@ export function Contact() {
     <section id="contact" className={styles.contact}>
       <div className={styles.container}>
         {/* Header (без змін) */}
-        <div className={styles.header}>
-          <motion.span
-            className={styles.tagline}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            Get In Touch
-          </motion.span>
-          <motion.h2
-            className={styles.title}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
-            Contact <span className={styles.titleAccent}>Us</span>
-          </motion.h2>
-        </div>
+        <motion.div
+          className={styles.header}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.8 }}
+        >
+          <TagTitle>Get In Touch</TagTitle>
+          <Title>Contact <TitleAccent>Us</TitleAccent></Title>
+        </motion.div>
 
         <div className={styles.grid}>
           {/* Contact Info (без змін) */}

@@ -8,6 +8,7 @@ const Services = dynamic(() => import('@/sections/services/Services').then(mod =
 const Destinations = dynamic(() => import('@/sections/destinations/Destinations').then(mod => ({ default: mod.Destinations })));
 const ExclusiveEvent = dynamic(() => import('@/sections/exclusiveEvent/ExclusiveEvent').then(mod => ({ default: mod.ExclusiveEvent })));
 const Partners = dynamic(() => import('@/sections/partners/Partners').then(mod => ({ default: mod.Partners })));
+const DiamondPrivilege = dynamic(() => import('@/sections/diamondPrivilege/DiamondPrivilege').then(mod => ({ default: mod.DiamondPrivilege })));
 const Contact = dynamic(() => import('@/sections/contact/Contact').then(mod => ({ default: mod.Contact })));
 const Footer = dynamic(() => import('@/sections/footer/Footer').then(mod => ({ default: mod.Footer })));
 
@@ -25,6 +26,7 @@ export default function Home() {
         <Destinations />
         <ExclusiveEvent />
         <Partners />
+        <DiamondPrivilege />
         <Contact />
         <Footer />
       </main>

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import OptimizedImage from '@/components/optimizedImage';
 import { servicesData } from '@/data';
+import { TagTitle, Title, TitleAccent } from '@/components/title/Title';
 import styles from './services.module.css';
 
 const luxurySpring = {
@@ -16,26 +17,16 @@ const luxurySpring = {
 export function Services() {
   return (
     <section id="services" className={styles.services}>
-      <div className={styles.header}>
-        <motion.span
-          className={styles.tagline}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          What We Offer
-        </motion.span>
-        <motion.h2
-          className={styles.title}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-        >
-          Our <span className={styles.titleAccent}>Services</span>
-        </motion.h2>
-      </div>
+      <motion.div
+        className={styles.header}
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-50px' }}
+        transition={{ duration: 0.8 }}
+      >
+        <TagTitle>What We Offer</TagTitle>
+        <Title>Our <TitleAccent>Services</TitleAccent></Title>
+      </motion.div>
 
       {servicesData.map((category, categoryIndex) => (
         <ServiceCategory

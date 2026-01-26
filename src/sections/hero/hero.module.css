@@ -56,7 +56,8 @@
 
 /* Content */
 .content {
-  position: relative;
+  bottom: 100px;
+  position: absolute;
   z-index: 3;
   text-align: center;
   padding: var(--spacing-md);

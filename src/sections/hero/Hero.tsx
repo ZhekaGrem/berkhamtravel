@@ -95,7 +95,7 @@ export function Hero() {
           Where travel meets elegance
         </motion.span> */}
 
-        <motion.h1
+        {/* <motion.h1
           className={styles.title}
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -106,7 +106,7 @@ export function Hero() {
           <span className={styles.titleAccent}>Private Travel </span>
           <span className={styles.titleAccent}> & </span>
           <span className={styles.titleAccent}>Concierge</span>
-        </motion.h1>
+        </motion.h1> */}
 
         <motion.p
           className={styles.subtitle}

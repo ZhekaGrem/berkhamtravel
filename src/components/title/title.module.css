@@ -1,0 +1,53 @@
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(3.5rem, 5vw, 6rem); /* Великий епічний розмір */
+  font-weight: 400; /* Luxury любить тонкі шрифти у великому розмірі */
+  background: var(--color-text-accent-gradient-silver);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text; /* Базовий білий/срібний */
+  line-height: 40px;
+  margin-bottom: var(--spacing-xl);
+  letter-spacing: 8px;
+}
+
+.titleAccent {
+  /* Твій золотий градієнт */
+  background: var(--color-text-accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-style: italic; /* Додає динаміки */
+}
+
+.tagline {
+            display: block;
+  font-family: var(--font-body);
+  font-size: var(--font-size-caption);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  background: var(--color-text-accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: var(--spacing-md);
+
+}
+
+@media (min-width: 480px) {
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .title {
+    line-height: 80px;
+  }
+}
+
+@media (min-width: 1440px) {
+}

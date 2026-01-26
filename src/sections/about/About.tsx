@@ -3,12 +3,13 @@
 import { motion } from 'framer-motion';
 import styles from './about.module.css';
 import Image from 'next/image';
+import { TagTitle, Title, TitleAccent } from '@/components/title/Title';
 
 export function About() {
   return (
     <section id="about" className={styles.about}>
       <div className={styles.container}>
-        
+
         {/* Content Centered */}
         <motion.div
           className={styles.content}
@@ -19,21 +20,20 @@ export function About() {
         >
           {/* Decorative Divider Line */}
           <div className={styles.topDivider} />
+          <TagTitle >About Us</TagTitle>
 
-          <span className={styles.tagline}>About Us</span>
-
-          <h2 className={styles.title}>
+          <Title >
             Creating Bespoke Journeys
             <br />
-            <span className={styles.titleAccent}>Beyond the Ordinary</span>
-          </h2>
+            <TitleAccent >Beyond the Ordinary</TitleAccent>
+          </Title>
 
           <div className={styles.text}>
             <p>
-             Berkham Team creates journeys for those who value discretion, precision and personal rhythm, with a focus on clarity, structure and intelligent planning rather than excess. 
+              Berkham Team creates journeys for those who value discretion, precision and personal rhythm, with a focus on clarity, structure and intelligent planning rather than excess.
             </p>
             <p>
-Each journey is built around your priorities, with close attention to privacy, timing and detail, and delivered through a limited circle of trusted partners and destinations chosen for their consistency and standards.            </p>
+              Each journey is built around your priorities, with close attention to privacy, timing and detail, and delivered through a limited circle of trusted partners and destinations chosen for their consistency and standards.            </p>
             <p>
               Every element is coordinated quietly and efficiently, allowing travel to unfold as it should be — considered, personal and seamless.
             </p>
@@ -41,22 +41,22 @@ Each journey is built around your priorities, with close attention to privacy, t
 
           {/* Trust Signal - Re-styled as a Badge */}
           <div className={styles.trustSignal}>
-              <div className={styles.trustContent}>
-               <span className={styles.trustLabel}>Proud Member of</span>
+            <div className={styles.trustContent}>
+              <span className={styles.trustLabel}>Proud Member of</span>
             </div>
             <div className={styles.trustIcon}>
-               {/* Leading Hotels Icon */}
-               {/* <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
+              {/* Leading Hotels Icon */}
+              {/* <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                </svg> */}
-               <Image 
-    src="/partners/logo_home_1.png" 
-    alt="The Leading Hotels of the World" 
-    width={200} 
-    height={200}
-  />
+              <Image
+                src="/partners/logo_home_1.png"
+                alt="The Leading Hotels of the World"
+                width={200}
+                height={200}
+              />
             </div>
-          
+
           </div>
 
           <a href="#services" className={styles.cta}>
@@ -67,7 +67,7 @@ Each journey is built around your priorities, with close attention to privacy, t
               </svg>
             </span>
           </a>
-          
+
         </motion.div>
       </div>
     </section>

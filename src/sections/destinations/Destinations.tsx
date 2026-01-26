@@ -3,32 +3,23 @@
 import { motion } from 'framer-motion';
 import OptimizedImage from '@/components/optimizedImage';
 import { destinations } from '@/data';
+import { TagTitle, Title, TitleAccent } from '@/components/title/Title';
 import styles from './destinations.module.css';
 
 export function Destinations() {
   return (
     <section id="destinations" className={styles.destinations}>
       <div className={styles.container}>
-        <div className={styles.header}>
-          <motion.span
-            className={styles.tagline}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            Where We Take You
-          </motion.span>
-          <motion.h2
-            className={styles.title}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
-            Our Top <span className={styles.titleAccent}>Destinations</span>
-          </motion.h2>
-        </div>
+        <motion.div
+          className={styles.header}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.8 }}
+        >
+          <TagTitle>Where We Take You</TagTitle>
+          <Title>Our Top <TitleAccent>Destinations</TitleAccent></Title>
+        </motion.div>
 
         <div className={styles.grid}>
           {destinations.map((destination, index) => (
