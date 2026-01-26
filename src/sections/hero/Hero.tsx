@@ -53,7 +53,7 @@ export function Hero() {
       <div className={styles.mediaWrapper}>
         {/* Hero image - always visible first for LCP */}
         <Image
-          src="/premium_berkhamtravel_plane_and_car.jpg"
+          src={isMobile ? '/hero-mobile.webp' : '/hero-desktop.webp'}
           alt="Luxury travel"
           fill
           priority
@@ -72,10 +72,10 @@ export function Hero() {
           loop
           playsInline
           preload="none"
-          poster="/premium_berkhamtravel_plane_and_car.jpg"
+          poster={isMobile ? '/hero-mobile.webp' : '/hero-desktop.webp'}
         >
           <source
-            src={isMobile ? '/video/phone.mp4' : '/video/phone.mp4'}
+            src={isMobile ? '/video/phone.mp4' : '/video/desktop.mp4'}
             type="video/mp4"
           />
         </video>

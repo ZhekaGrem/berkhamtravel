@@ -20,6 +20,11 @@ export default function Home() {
       <NavBar />
       <SocialSidebar />
       <main>
+        <h1
+
+          className='invisible'>
+          Berkham Private Travel & Concierge
+        </h1>
         <Hero />
         <About />
         <Services />

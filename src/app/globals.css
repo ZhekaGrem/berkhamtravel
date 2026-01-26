@@ -15,21 +15,22 @@
   --color-text-accent: #d4af37;
   --color-text-accent-opacity: #d4af37;
 
-  --color-text-accent-gradient-silver: linear-gradient(to right,
-  #8A9ba8 0%,       /* Сіро-блакитна тінь */
-  #eef2f3 25%,      /* Майже білий холодний */
-  #8e9eab 50%,      /* Металік */
-  #ffffff 75%,      /* Чистий білий */
-  #8a9ba8 100%      /* Повернення до тіні */ );
+  --color-text-accent-gradient-silver: linear-gradient(
+    to right,
+    #8a9ba8 0%,
+    /* Сіро-блакитна тінь */ #eef2f3 25%,
+    /* Майже білий холодний */ #8e9eab 50%,
+    /* Металік */ #ffffff 75%,
+    /* Чистий білий */ #8a9ba8 100% /* Повернення до тіні */
+  );
   --color-text-accent-gradient: linear-gradient(
-  45deg,
-  #BF953F, /* Темне золото (тінь) */
-  #FCF6BA, /* Світлий відблиск (світло) */
-  #B38728, /* Насичене золото */
-  #FBF5B7, /* Ще один відблиск */
-  #AA771C  /* Темний фініш */
-);
- 
+    45deg,
+    #bf953f,
+    /* Темне золото (тінь) */ #fcf6ba,
+    /* Світлий відблиск (світло) */ #b38728,
+    /* Насичене золото */ #fbf5b7,
+    /* Ще один відблиск */ #aa771c /* Темний фініш */
+  );
 
   --color-text-secondary: #8a8a8a;
   --color-border: rgba(212, 175, 55, 0.15);
@@ -39,7 +40,7 @@
   /* Typography - base fallbacks */
   --font-heading: "Italianno", serif;
   --font-body: "Montserrat", sans-serif;
-  --font-accent: "Cormorant",  serif;
+  --font-accent: "Cormorant", serif;
 
   /* Font Sizes */
   --font-size-hero: clamp(2.25rem, 5vw, 4.5rem); /* 36px - 72px */
@@ -107,8 +108,7 @@ html {
 
 body {
   /* Override with Next.js font variables when available */
-  --font-heading:
-    var(--font-playfairDisplay),"Antic Didone", serif;
+  --font-heading: var(--font-playfairDisplay), "Antic Didone", serif;
   --font-body: var(--font-montserrat), "Raleway", "Helvetica Neue", sans-serif;
   --font-accent: var(--font-cormorant), "Cormorant", Georgia, serif;
 
@@ -563,4 +563,15 @@ video {
 ::-moz-selection {
   background-color: var(--color-text-accent);
   color: var(--color-primary-bg);
+}
+
+.invisible {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
 }
