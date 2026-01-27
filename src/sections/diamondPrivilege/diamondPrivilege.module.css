@@ -5,6 +5,7 @@
 .section {
   padding: var(--spacing-3xl) var(--spacing-md);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -30,6 +31,12 @@
 
 .card:hover {
   border-color: rgba(212, 175, 55, 0.25);
+}
+.text {
+  overflow-wrap: break-word;
+word-break: normal;
+hyphens: auto;
+  margin-bottom: var(--spacing-2xl);
 }
 
 .card:hover .corner::before,
@@ -349,6 +356,52 @@
   margin: 0;
 }
 
+
+/* ============================================
+   INTRO TEXT SECTION (Нові стилі)
+   ============================================ */
+
+.introWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 680px; /* Обмежуємо ширину для зручності читання */
+  margin: 0 auto var(--spacing-3xl); /* Великий відступ до картки знизу */
+  padding: 0 var(--spacing-md);
+  gap: var(--spacing-lg); /* Відстань між абзацами */
+}
+
+.introText {
+  font-family: var(--font-body); /* Ваш основний шрифт */
+  font-size: clamp(1rem, 2vw, 1.125rem); /* Трохи більший розмір */
+  line-height: 1.6;
+  color: var(--color-text-secondary); /* Світло-сірий */
+  font-weight: 300;
+}
+
+/* Робимо назву партнера золотою/акцентною */
+.goldText {
+  background: var(--color-text-accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.introLocation {
+  font-family: var(--font-body);
+  font-size: 0.875rem; /* Дрібніший шрифт для другорядної інфо */
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  opacity: 0.6; /* Напівпрозорий, щоб не сперечався з головним текстом */
+  max-width: 500px; /* Ще вужче, щоб виглядало як примітка */
+}
+
+
+
+
 /* ============================================
    RESPONSIVE
    ============================================ */
@@ -381,6 +434,12 @@
   .corner {
     width: 44px;
     height: 44px;
+  }
+}
+
+@media (max-width: 768px) {
+  .introWrapper {
+    margin-bottom: var(--spacing-xl);
   }
 }
 

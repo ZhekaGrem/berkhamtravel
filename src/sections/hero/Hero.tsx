@@ -85,8 +85,8 @@ export function Hero() {
       <div className={styles.overlay} />
 
       {/* Content */}
-      <div className={styles.content}>
-        {/* <motion.span
+     {/* <div className={styles.content}>
+         <motion.span
           className={styles.tagline}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -108,14 +108,14 @@ export function Hero() {
           <span className={styles.titleAccent}>Concierge</span>
         </motion.h1> */}
 
-        <motion.p
+        {/* <motion.p
           className={styles.subtitle}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
           Where Travel Meets Elegance 
-        </motion.p>
+        </motion.p> */}
 
         {/* <motion.div
           className={styles.cta}
@@ -131,8 +131,8 @@ export function Hero() {
               </div>
             </div>
           </a>
-        </motion.div> */}
-      </div>
+        </motion.div> 
+      </div>*/}
 
 
     </section>

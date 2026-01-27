@@ -68,7 +68,7 @@
 
 .categoryTitle {
   font-family: var(--font-heading);
-  font-size: var(--font-size-h3);
+  font-size: var(--font-size-h2);
   font-weight: 400;
   color: var(--color-text-primary);
   margin: 0;
@@ -131,8 +131,8 @@
 }
 
 .cardTitle {
-  font-family: var(--font-heading);
-  font-size: clamp(1.25rem, 2vw, 2.5rem);
+  font-family: var(--font-accent);
+  font-size: clamp(1.25rem, 2vw, 2rem);
   font-weight: 600;
   color: var(--color-text-primary);
   margin: 0 0 var(--spacing-sm);
@@ -195,7 +195,7 @@
 }
 
 .mobileCardTitle {
-  font-family: var(--font-heading);
+  font-family: var(--font-accent);
   font-size: var(--font-size-h2);
   font-weight: 600;
   color: var(--color-text-primary);
@@ -250,7 +250,7 @@
     content: attr(data-title);
     display: block;
     font-family: var(--font-heading);
-    font-size: var(--font-size-h3);
+    font-size: var(--font-size-h2);
     font-weight: 600;
     color: var(--color-text-primary);
     margin-bottom: var(--spacing-lg);

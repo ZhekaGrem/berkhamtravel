@@ -28,6 +28,32 @@ export function DiamondPrivilege() {
 
   return (
     <section className={styles.section}>
+
+
+      <div className={styles.introWrapper}>
+      <motion.p 
+        className={styles.introText}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+      >
+        We work closely with a selection of trusted friends and professionals, united by shared values and mutual trust. 
+        In addition to access to private events and special occasions, as well as other exclusive experiences and services, 
+        our partner — <span className={styles.goldText}>Boutique Eco Diamant</span> — offers the opportunity to select and rent 
+        luxurious jewellery on special terms for distinguished social appearances.
+      </motion.p>
+
+      <motion.p 
+        className={styles.introLocation}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+      >
+        Some partners are based in Monaco and along the French Riviera, while the network itself extends beyond a single location and continues to evolve.
+      </motion.p>
+    </div>
       <motion.div
         className={styles.card}
         initial={{ opacity: 0, y: 60 }}
@@ -44,10 +70,6 @@ export function DiamondPrivilege() {
         {/* Card Inner */}
         <div className={styles.cardInner}>
 
-          {/* Level A: Status */}
-          <TagTitle>
-            Strategic Partnership
-          </TagTitle>
 
 
 
