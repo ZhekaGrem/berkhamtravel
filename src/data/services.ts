@@ -34,14 +34,14 @@ export const servicesData: ServiceCategory[] = [
         id: "private-aviation",
         title: "Private Aviation",
         description:
-          "A way of flying that respects your time and rhythm. From private jet charters to helicopter flights and smooth air transfers, we design aviation solutions that feel eﬀortless. Each arrangement is built around your schedule, ensuring a calm, eﬃcient and discreet experience from departure to arrival.",
+          "A way of flying that respects your time and rhythm. From private jet charters to helicopter flights and smooth air transfers, we design aviation solutions that feel effortless. Each arrangement is built around your schedule, ensuring a calm, efficient and discreet experience from departure to arrival.",
         image: "/Private_Aviation.jpg",
       },
       {
         id: "ground-transportation",
         title: "Ground Transportation",
         description:
-          "Ground transportation should feel eﬀortless and discreet. We arrange luxury car rentals, professional chauﬀeurs and seamless transfers, carefully planned to ensure comfort, eﬃciency and peace of mind throughout your journey.",
+          "Ground transportation should feel effortless and discreet. We arrange luxury car rentals, professional chauffeurs and seamless transfers, carefully planned to ensure comfort, efficiency and peace of mind throughout your journey.",
         image: "/premium_berkhamtravel_plane_and_car_2.jpg",
       },
       {

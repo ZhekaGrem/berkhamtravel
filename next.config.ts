@@ -9,6 +9,27 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
   staticPageGenerationTimeout: 520,
+  poweredByHeader: false,
+  async headers() {
+    const securityHeaders = [
+      { key: "X-Content-Type-Options", value: "nosniff" },
+      { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+      { key: "X-Frame-Options", value: "SAMEORIGIN" },
+      { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
+    ];
+    // Media in /public is not content-hashed, so cache for a week rather than forever:
+    // a replaced file under the same name reaches visitors within 7 days.
+    const mediaCache = [
+      { key: "Cache-Control", value: "public, max-age=604800, stale-while-revalidate=86400" },
+    ];
+    return [
+      { source: "/:path*", headers: securityHeaders },
+      {
+        source: "/:file((?!_next/).+\\.(?:jpg|jpeg|png|webp|avif|svg|mp4|webm))",
+        headers: mediaCache,
+      },
+    ];
+  },
   experimental: {
     optimizeCss: true,
   },

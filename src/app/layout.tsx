@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     default: "Berkham Private Travel & Concierge | Luxury Travel Services",
     template: "%s | Berkham Travel"
   },
-  description: "Bespoke luxury travel experiences, private aviation, yacht charters, and exclusive concierge services. Where travel meets elegance.",
+  description: "Private travel & lifestyle concierge: premium hotels, yacht charters, private aviation, villas and VIP event access in Monaco, Courchevel, Dubai, London & beyond.",
   keywords: [
     "premium hotel accommodation",
 "yacht charters",
@@ -122,7 +122,7 @@ export const metadata: Metadata = {
     ],
   },
 
-  authors: [{ name: "Berkham Travel" }],
+  authors: [{ name: "Berkham Private Travel & Concierge" }],
   creator: "Berkham Private Travel & Concierge",
   publisher: "Berkham Private Travel & Concierge",
   formatDetection: {
@@ -139,8 +139,8 @@ export const metadata: Metadata = {
     url: 'https://www.berkhamtrvl.com',
     title: 'Berkham Private Travel & Concierge',
     description:
-      'Berkham Team creates journeys for those who value discretion, precision and personal rhythm, with a focus on clarity, structure and intelligent planning rather than excess. Each journey is built around your priorities, with close attention to privacy, timing and detail, and delivered through a limited circle of trusted partners and destinations chosen for their consistency and standards. Every element is coordinated quietly and efficiently, allowing travel to unfold as it should be — considered, personal and seamless. premium hotel accommodation | yacht charters | aviation | villa rental | transportation | exclusive event access',
-    siteName: 'Berkham Private Travel',
+      'Journeys built around your priorities, with close attention to privacy, timing and detail. Premium hotels, yacht charters, private aviation, villas and exclusive event access.',
+    siteName: 'Berkham Private Travel & Concierge',
     images: [
       {
         url: '/logo/seo.png',
@@ -154,7 +154,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Berkham Private Travel & Concierge',
     description:
-      "Berkham Team creates journeys for those who value discretion, precision and personal rhythm, with a focus on clarity, structure and intelligent planning rather than excess. Each journey is built around your priorities, with close attention to privacy, timing and detail, and delivered through a limited circle of trusted partners and destinations chosen for their consistency and standards. Every element is coordinated quietly and efficiently, allowing travel to unfold as it should be — considered, personal and seamless. premium hotel accommodation | yacht charters | aviation | villa rental | transportation | exclusive event access",
+      "Journeys built around your priorities, with close attention to privacy, timing and detail. Premium hotels, yacht charters, private aviation, villas and exclusive event access.",
     images: ['/logo/seo.png'],
     creator: '@berkhamtravel',
   },
@@ -181,50 +181,48 @@ const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Organization",
+      "@type": ["TravelAgency", "Organization"],
       "@id": "https://www.berkhamtrvl.com/#organization",
       "name": "Berkham Private Travel & Concierge",
-      "url": "https://www.berkhamtrvl.com",
+      "legalName": "Berkham Private Travel & Concierge LLP",
+      "url": "https://www.berkhamtrvl.com/",
+      "description": "Private travel and lifestyle concierge arranging premium hotels, yacht charters, private aviation, villa rentals, ground transportation and exclusive event access for private clients worldwide.",
       "logo": {
         "@type": "ImageObject",
         "url": "https://www.berkhamtrvl.com/logo/logo.png",
         "width": 300,
         "height": 80
       },
+      "image": "https://www.berkhamtrvl.com/logo/seo.png",
+      "foundingDate": "2026-01-22",
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "UK Companies House",
+        "value": "OC459481"
+      },
+      "telephone": "+33679105270",
+      "email": "office@berkhamtrvl.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "5 Brayford Square",
+        "addressLocality": "London",
+        "postalCode": "E1 0SG",
+        "addressCountry": "GB"
+      },
+      "areaServed": [
+        "Bodrum", "Cannes", "Courchevel", "Dubai", "Ibiza", "London", "Mallorca", "Marbella",
+        "Monaco", "Mykonos", "Paris", "Saint-Tropez", "St. Barth", "St. Moritz", "Tulum"
+      ],
       "sameAs": [
         "https://www.instagram.com/berkhamtravel/",
-        "https://wa.me/33679105270",
-        "https://t.me/+33679105270"
+        "https://find-and-update.company-information.service.gov.uk/company/OC459481"
       ],
       "contactPoint": {
         "@type": "ContactPoint",
-        "telephone": "+33679105270",
         "contactType": "customer service",
-        "areaServed": "Worldwide",
+        "telephone": "+33679105270",
+        "email": "office@berkhamtrvl.com",
         "availableLanguage": ["English", "French", "Russian"]
-      }
-    },
-    {
-      "@type": "TravelAgency",
-      "@id": "https://www.berkhamtrvl.com/#business",
-      "name": "Berkham Private Travel & Concierge",
-      "description": "Bespoke luxury travel experiences, private aviation, yacht charters, and exclusive concierge services for discerning clients worldwide.",
-      "url": "https://www.berkhamtrvl.com",
-      "telephone": "+33679105270",
-      "email": "info@www.berkhamtrvl.com",
-      "priceRange": "$$$$$",
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "France"
-      },
-      "areaServed": {
-        "@type": "GeoCircle",
-        "geoMidpoint": {
-          "@type": "GeoCoordinates",
-          "latitude": 48.8566,
-          "longitude": 2.3522
-        },
-        "geoRadius": "10000"
       },
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
@@ -268,7 +266,7 @@ const structuredData = {
     {
       "@type": "WebSite",
       "@id": "https://www.berkhamtrvl.com/#website",
-      "url": "https://www.berkhamtrvl.com",
+      "url": "https://www.berkhamtrvl.com/",
       "name": "Berkham Private Travel & Concierge",
       "publisher": {
         "@id": "https://www.berkhamtrvl.com/#organization"
@@ -288,20 +286,10 @@ export default function RootLayout({
         {/* DNS prefetch and preconnect for external resources */}
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.clarity.ms" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-
-        {/* Preload critical hero image for LCP */}
-        <link
-          rel="preload"
-          href="/premium_berkhamtravel_plane_and_car.jpg"
-          as="image"
-          fetchPriority="high"
-        />
-        <Script
+        <script
           id="structured-data"
           type="application/ld+json"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, '\\u003c') }}
         />
         <Script type="text/javascript" id="microsoft-clarity" strategy="lazyOnload">
           {`(function(c,l,a,r,i,t,y){
